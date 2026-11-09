@@ -1,1 +1,163 @@
 @import 'reset.css';
+@import 'variables.css';
+
+body {
+    height: 100vh;
+    background: var(--color-bg-page);
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+    gap: 1rem;
+    padding: .5rem;
+}
+
+aside, main {
+    background: var(--color-bg-surface);
+    border-radius: .75rem;
+    padding: 1rem;
+}
+
+.block {
+    display: block;
+}
+
+aside {
+    header {
+        display: flex;
+        gap: 1rem;
+        padding-block: 1rem;
+        border: 1px solid;
+        margin-bottom: 1rem;
+    }
+
+    .categories {
+        color: var(--color-border-input);
+        border: 1px solid;
+
+        .categories-item {
+            --dot-color: var(--color-cat-all);
+            --badge-background: var(--color-cat-all-bg);
+            --text-color: var(--color-cat-all-text);
+            &.blue {
+                --dot-color: var(--color-cat-work);
+                --badge-background: var(--color-cat-work-bg);
+                --text-color: var(--color-cat-work-text);
+            }
+
+            &.pink {
+                --dot-color: var(--color-cat-personal);
+                --badge-background: var(--color-cat-personal-bg);
+                --text-color: var(--color-cat-personal-text);
+            }
+
+            &.green {
+                --dot-color: var(--color-cat-study);
+                --badge-background: var(--color-cat-study-bg);
+                --text-color: var(--color-cat-study-text);
+            }
+
+            display: flex;
+            align-items: center;
+            padding-block: 1rem;
+
+            .dot {
+                width: var(--size-dot);
+                height: var(--size-dot);
+                background-color: var(--dot-color);
+                border-radius: 100%;
+            }
+
+            .badge {
+                color: var(--text-color);
+                background-color: var(--badge-background);
+                padding: .5rem;
+                border-radius: 50%;
+                margin-left: auto;
+            }
+
+            span {
+                color: var(--color-text);
+            }
+        }
+    }
+}
+
+main {
+    header {
+        border: 1px solid;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        font-weight: 500;
+
+        .date {
+            display: flex;
+            flex-direction: column;
+
+            color: var(--color-primary);
+            & > span:first-child {
+                font-size: 1.75rem;
+                font-weight: 500;
+            }
+
+            /*& > span:last-child {*/
+
+            /*}*/
+        }
+
+        .time {
+            background-color: var(--color-primary);
+            color: var(--color-on-primary);
+            display: flex;
+            gap: .5rem;
+            padding: .5rem 1rem;
+            border-radius: .5rem;
+        }
+    }
+
+    .stat {
+        border: 1px solid;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+
+        & > div {
+            background-color: var(--color-cat-all-bg);
+        }
+    }
+
+    form {
+        border: 1px solid var(--color-cat-all-bg);
+        border-radius: .5rem;
+        padding: 1rem;
+
+        & > div {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: .5rem;
+        }
+
+        input, select {
+            width: 100%;
+        }
+    }
+
+    .task-list {
+        border: 1px solid;
+        & > span {
+            display:block;
+            padding-block: 1rem;
+        }
+
+        .task {
+            display: grid;
+            grid-template-columns: 1fr 6fr 2fr;
+
+            border-left: 5px solid var(--color-cat-work);
+            margin-bottom: 1rem;
+        }
+    }
+}
+
