@@ -8,7 +8,131 @@
     <title>PlainToDo</title>
 </head>
 <body>
+    <aside>
+        <header>
+            <div>Logo</div>
+            <span class="block">Taskboard</span>
+        </header>
 
+        <div class="categories">
+            <span class="block">Categories</span>
+
+            <div class="categories-item">
+                <div class="dot"></div>
+                <span>All tasks</span>
+                <div class="badge">6</div>
+            </div>
+            <div class="categories-item blue">
+                <div class="dot"></div>
+                <span>Work</span>
+                <div class="badge">2</div>
+            </div>
+            <div class="categories-item pink">
+                <div class="dot"></div>
+                <span>Personal</span>
+                <div class="badge">2</div>
+            </div>
+            <div class="categories-item green">
+                <div class="dot"></div>
+                <span>Study</span>
+                <div class="badge">2</div>
+            </div>
+        </div>
+    </aside>
+
+    <main>
+        <header>
+            <div class="date">
+                <span>Sunday</span>
+                <span>November 8, 2026</span>
+            </div>
+            <div class="time">
+                <div>Icon</div>
+                <span>7:25:10 PM</span>
+            </div>
+        </header>
+
+        <div class="stat">
+            <div>
+                <span class="block">Total</span>
+                <span>6</span>
+            </div>
+            <div>
+                <span class="block">Active</span><span>4</span></div>
+            <div>
+                <span class="block">Done</span><span>2</span></div>
+            <div>
+                <span class="block">High</span><span>1</span></div>
+        </div>
+
+        <form>
+            <label>
+                <input type="text" name="title" id="title" placeholder="Prepare sprint demo">
+            </label>
+            <div>
+                <label for="category">
+                    <select name="category" id="category">
+                        <option value="work">Work</option>
+                        <option value="personal">Personal</option>
+                        <option value="study">Study</option>
+                    </select>
+                </label>
+
+
+                <label for="priority">
+                    <select name="priority" id="priority">
+                        <option value="work">High</option>
+                        <option value="personal">Medium</option>
+                        <option value="study">Low</option>
+                    </select>
+                </label>
+
+
+                <button type="submit">Add task</button>
+            </div>
+        </form>
+
+        <div class="task-list">
+            <span>6 tasks</span>
+
+            <div class="task">
+                <div class="checkbox">O</div>
+                <div>
+                    <span>Prepare quarterly report</span>
+                    <div class="badge">High</div>
+                    <div class="badge">Work</div>
+                </div>
+                <button>Delete</button>
+            </div>
+            <div class="task">
+                <div class="checkbox">O</div>
+                <div>
+                    <span>Prepare quarterly report</span>
+                    <div class="badge">High</div>
+                    <div class="badge">Work</div>
+                </div>
+                <button>Delete</button>
+            </div>
+            <div class="task">
+                <div class="checkbox">O</div>
+                <div>
+                    <span>Prepare quarterly report</span>
+                    <div class="badge">High</div>
+                    <div class="badge">Work</div>
+                </div>
+                <button>Delete</button>
+            </div>
+            <div class="task">
+                <div class="checkbox">O</div>
+                <div>
+                    <span>Prepare quarterly report</span>
+                    <div class="badge">High</div>
+                    <div class="badge">Work</div>
+                </div>
+                <button>Delete</button>
+            </div>
+        </div>
+    </main>
 
 
 </body>

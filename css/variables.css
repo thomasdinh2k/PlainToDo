@@ -1,0 +1,120 @@
+/* ==========================================================================
+   Design tokens — colors and spacing
+   Source: Taskboard mockup (1436×1534 PNG, sRGB, 2× pixel density).
+   Colors are exact pixel values. Sizes are device pixels ÷ 2 = CSS px.
+   ========================================================================== */
+
+:root {
+    /* ---------- Brand ---------- */
+    --color-primary: #524bb1;          /* Add task button, clock, check ring, labels, logo icon */
+    --color-primary-strong: #3b3484;   /* Headings ("Sunday", "Taskboard"), Add-task button border */
+    --color-on-primary: #ffffff;       /* Text/icons on primary background */
+
+    /* ---------- Surfaces & lines ---------- */
+    --color-bg-page: #eeedfd;          /* Lavender page background */
+    --color-bg-surface: #ffffff;       /* Sidebar, main panel, inputs */
+    --color-border-surface: #cecbf3;   /* Sidebar / main / add-task box outline */
+    --color-border-input: #7e77d7;     /* Text input and select outline */
+    --color-divider: #d3d1c8;          /* Line under each task row */
+    --color-divider-subtle: #f1efe9;   /* Line between category rows */
+
+    /* ---------- Text ---------- */
+    --color-text: #2c2c2a;             /* Task title, category name, select value */
+    --color-text-muted: #5f5e5b;       /* "Added …", input text, finished task title */
+
+    /* ---------- Stat tiles (bg / label / number) ---------- */
+    --color-stat-total-bg: #eeedfd;
+    --color-stat-total-label: #524bb1;
+    --color-stat-total-value: #3b3484;
+
+    --color-stat-active-bg: #e8f1fa;
+    --color-stat-active-label: #2f5ea0;
+    --color-stat-active-value: #1e4378;
+
+    --color-stat-done-bg: #ecf3e0;
+    --color-stat-done-label: #476c23;
+    --color-stat-done-value: #314f18;
+
+    --color-stat-high-bg: #f8ede8;
+    --color-stat-high-label: #8e4227;
+    --color-stat-high-value: #69301a;
+
+    /* ---------- Categories (dot + task stripe / badge bg / badge text) ---------- */
+    --color-cat-all: #7e77d7;
+    --color-cat-all-bg: #eeedfd;
+    --color-cat-all-text: #3b3484;
+
+    --color-cat-work: #4e88d7;
+    --color-cat-work-bg: #e8f1fa;
+    --color-cat-work-text: #1e4378;
+
+    --color-cat-personal: #c55c7e;
+    --color-cat-personal-bg: #f8ebf0;
+    --color-cat-personal-text: #692a3e;
+
+    --color-cat-study: #4b9c78;
+    --color-cat-study-bg: #e5f5ef;
+    --color-cat-study-text: #224f42;
+
+    /* ---------- Priority badges ---------- */
+    --color-priority-high-bg: #f9eceb;
+    --color-priority-high-text: #6f2623;
+    --color-priority-medium-bg: #f8efdc;
+    --color-priority-medium-text: #5d3a13;
+    --color-priority-low-bg: #ecf3e0;
+    --color-priority-low-text: #314f18;
+
+    /* ---------- Status / actions ---------- */
+    --color-check: #524bb1;            /* Empty circle (not done) */
+    --color-check-done: #476c23;       /* Filled circle (done); tick is white */
+    --color-danger-border: #d15650;    /* Delete button */
+    --color-danger-bg: #f9eceb;
+    --color-danger-text: #6f2623;
+
+    /* ---------- Border widths ---------- */
+    --border-hairline: 0.5px;          /* Sidebar / main outline, row dividers */
+    --border-thin: 1px;                /* Add-task box, inputs, buttons, Delete */
+    --border-check: 2px;               /* Check circle ring */
+    --stripe-width: 3px;               /* Category stripe on the left of a task */
+
+    /* ---------- Spacing scale ---------- */
+    --space-1: 4px;
+    --space-1-5: 6px;
+    --space-2: 8px;
+    --space-2-5: 10px;
+    --space-3: 12px;
+    --space-4: 16px;
+
+    /* ---------- Spacing roles (measured) ---------- */
+    --space-page: var(--space-2);            /* Outer gutter (screenshot edge is cropped: 7–8px) */
+    --space-layout-gap: var(--space-4);      /* Sidebar ↔ main */
+    --space-panel-padding: var(--space-4);   /* Inside sidebar and main panel */
+    --space-section-gap: var(--space-4);     /* Header → stats → form → task list */
+
+    --space-stat-gap: var(--space-2);        /* Between stat tiles */
+    --space-stat-padding: var(--space-2-5);  /* Inside a stat tile */
+
+    --space-form-padding: var(--space-3);    /* Inside the add-task box */
+    --space-form-gap: var(--space-2);        /* Input ↔ selects ↔ button */
+    --space-control-x: var(--space-3);       /* Input / select side padding */
+
+    --space-nav-row-y: var(--space-2);       /* Category row top/bottom padding */
+    --space-nav-dot-gap: var(--space-2-5);   /* Dot → category name */
+
+    --space-row-x: var(--space-2-5);         /* Stripe → check circle */
+    --space-row-gap: var(--space-3);         /* Check circle → task text */
+    --space-row-end: var(--space-2);         /* Delete button → row end */
+    --space-badge-gap: var(--space-1-5);     /* Between badges */
+    --space-meta-gap: var(--space-2);        /* Last badge → "Added …" */
+    --space-badge-x: var(--space-2);         /* Badge side padding */
+
+    /* ---------- Measured sizes (for reference) ---------- */
+    --size-sidebar: 176px;
+    --size-control-height: 36px;             /* Input, selects, Add task button */
+    --size-add-button: 120px;
+    --size-stat-height: 56px;
+    --size-check: 22px;
+    --size-dot: 10px;
+    --size-badge-height: 22px;
+    --size-delete-height: 26px;
+}
