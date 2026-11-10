@@ -41,6 +41,11 @@ const ICONS = {
         <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
     </svg>`,
 
+    // Tabler: circle (task not done)
+    circle: `<svg ${ICON_OUTLINE_ATTRS}>
+        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+    </svg>`,
+
     // Tabler: circle-check-filled (done task). The tick is a hole cut out of
     // the circle, so whatever is behind the icon shows through it.
     circleCheck: `<svg ${ICON_FILLED_ATTRS}>

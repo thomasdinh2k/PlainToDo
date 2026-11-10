@@ -22,7 +22,7 @@
         </header>
 
         <div class="categories">
-            <span class="block">Categories</span>
+            <span class="sub-text">Categories</span>
 
             <div class="categories-item">
                 <div class="dot"></div>
@@ -51,7 +51,7 @@
         <header>
             <div class="date">
                 <span>Sunday</span>
-                <span>November 8, 2026</span>
+                <span class="sub-text">November 8, 2026</span>
             </div>
             <div class="time">
                 <span data-icon="clock"></span>
@@ -102,57 +102,118 @@
             </div>
         </form>
 
-        <div class="task-list">
-            <span>6 tasks</span>
 
-            <div class="task">
-                <div class="checkbox">O</div>
+        <div class="task-list">
+            <span class="sub-text">6 tasks</span>
+
+            <div class="task blue" data-id="t1">
+                <button class="checkbox" type="button" aria-pressed="false" aria-label="Mark “Prepare quarterly report” as done">
+                    <span data-icon="circle"></span>
+                </button>
                 <div>
-                    <span>Prepare quarterly report</span>
-                    <div class="badge">High</div>
-                    <div class="badge">Work</div>
+                    <span class="title">Prepare quarterly report</span>
+                    <div class="task-description">
+                        <div class="badge high">High</div>
+                        <div class="badge blue">Work</div>
+                        <span class="createdAt">Added Sun, Nov 8, 2026, 6:39 PM</span>
+                    </div>
                 </div>
-                <button>
+                <button class="btn-delete" type="button" aria-label="Delete “Prepare quarterly report”">
                     <span data-icon="trash"></span>
                     Delete
                 </button>
             </div>
-            <div class="task">
-                <div class="checkbox">O</div>
+
+            <div class="task blue done" data-id="t2">
+                <button class="checkbox" type="button" aria-pressed="true" aria-label="Mark “Fix login page layout bug” as done">
+                    <span data-icon="circleCheck"></span>
+                </button>
                 <div>
-                    <span>Prepare quarterly report</span>
-                    <div class="badge">High</div>
-                    <div class="badge">Work</div>
+                    <span class="title">Fix login page layout bug</span>
+                    <div class="task-description">
+                        <div class="badge high">High</div>
+                        <div class="badge blue">Work</div>
+                        <span class="createdAt">Added Sun, Nov 8, 2026, 4:04 PM</span>
+                    </div>
                 </div>
-                <button>
+                <button class="btn-delete" type="button" aria-label="Delete “Fix login page layout bug”">
                     <span data-icon="trash"></span>
                     Delete
                 </button>
             </div>
-            <div class="task">
-                <div class="checkbox">O</div>
+
+            <div class="task pink" data-id="t3">
+                <button class="checkbox" type="button" aria-pressed="false" aria-label="Mark “Book dentist appointment” as done">
+                    <span data-icon="circle"></span>
+                </button>
                 <div>
-                    <span>Prepare quarterly report</span>
-                    <div class="badge">High</div>
-                    <div class="badge">Work</div>
+                    <span class="title">Book dentist appointment</span>
+                    <div class="task-description">
+                        <div class="badge medium">Medium</div>
+                        <div class="badge pink">Personal</div>
+                        <span class="createdAt">Added Sat, Nov 7, 2026, 6:14 PM</span>
+                    </div>
                 </div>
-                <button>
+                <button class="btn-delete" type="button" aria-label="Delete “Book dentist appointment”">
                     <span data-icon="trash"></span>
                     Delete
                 </button>
             </div>
-            <div class="task">
-                <div class="checkbox">O</div>
+
+            <div class="task green" data-id="t4">
+                <button class="checkbox" type="button" aria-pressed="false" aria-label="Mark “Read CSS grid chapter” as done">
+                    <span data-icon="circle"></span>
+                </button>
                 <div>
-                    <span>Prepare quarterly report</span>
-                    <div class="badge">High</div>
-                    <div class="badge">Work</div>
+                    <span class="title">Read CSS grid chapter</span>
+                    <div class="task-description">
+                        <div class="badge low">Low</div>
+                        <div class="badge green">Study</div>
+                        <span class="createdAt">Added Fri, Nov 6, 2026, 6:54 PM</span>
+                    </div>
                 </div>
-                <button>
+                <button class="btn-delete" type="button" aria-label="Delete “Read CSS grid chapter”">
                     <span data-icon="trash"></span>
                     Delete
                 </button>
             </div>
+
+            <div class="task pink done" data-id="t5">
+                <button class="checkbox" type="button" aria-pressed="true" aria-label="Mark “Renew gym membership” as done">
+                    <span data-icon="circleCheck"></span>
+                </button>
+                <div>
+                    <span class="title">Renew gym membership</span>
+                    <div class="task-description">
+                        <div class="badge low">Low</div>
+                        <div class="badge pink">Personal</div>
+                        <span class="createdAt">Added Thu, Nov 5, 2026, 5:54 PM</span>
+                    </div>
+                </div>
+                <button class="btn-delete" type="button" aria-label="Delete “Renew gym membership”">
+                    <span data-icon="trash"></span>
+                    Delete
+                </button>
+            </div>
+
+            <div class="task green" data-id="t6">
+                <button class="checkbox" type="button" aria-pressed="false" aria-label="Mark “Practice async JavaScript” as done">
+                    <span data-icon="circle"></span>
+                </button>
+                <div>
+                    <span class="title">Practice async JavaScript</span>
+                    <div class="task-description">
+                        <div class="badge medium">Medium</div>
+                        <div class="badge green">Study</div>
+                        <span class="createdAt">Added Wed, Nov 4, 2026, 6:34 PM</span>
+                    </div>
+                </div>
+                <button class="btn-delete" type="button" aria-label="Delete “Practice async JavaScript”">
+                    <span data-icon="trash"></span>
+                    Delete
+                </button>
+            </div>
+
         </div>
     </main>
 
