@@ -22,23 +22,45 @@ aside, main {
     display: block;
 }
 
+.icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
 aside {
     header {
         display: flex;
-        gap: 1rem;
-        padding-block: 1rem;
-        border: 1px solid;
-        margin-bottom: 1rem;
+        /*border: 1px solid;*/
+        margin-bottom: 1.5rem;
+        color: var(--color-primary);
+        font-weight: 600;
+        font-size: 1.25rem;
+        align-items: center;
+        gap: .5rem;
     }
 
     .categories {
         color: var(--color-border-input);
-        border: 1px solid;
+
+        & > span {
+            font-size: 1rem;
+            font-weight: 500;
+
+        }
 
         .categories-item {
             --dot-color: var(--color-cat-all);
             --badge-background: var(--color-cat-all-bg);
             --text-color: var(--color-cat-all-text);
+
+            display: flex;
+            align-items: center;
+            padding-block: .75rem;
+            gap: .75rem;
+
+
             &.blue {
                 --dot-color: var(--color-cat-work);
                 --badge-background: var(--color-cat-work-bg);
@@ -57,10 +79,6 @@ aside {
                 --text-color: var(--color-cat-study-text);
             }
 
-            display: flex;
-            align-items: center;
-            padding-block: 1rem;
-
             .dot {
                 width: var(--size-dot);
                 height: var(--size-dot);
@@ -71,10 +89,12 @@ aside {
             .badge {
                 color: var(--text-color);
                 background-color: var(--badge-background);
-                padding: .5rem;
-                border-radius: 50%;
+                padding: 0 0.65rem;
+                border-radius: 35%;
                 margin-left: auto;
             }
+
+            border-bottom: 1px solid var(--color-divider-subtle);
 
             span {
                 color: var(--color-text);
