@@ -14,8 +14,8 @@ Legend: **[decide]** = a choice you should make (and be able to defend) before c
   - Tip: tell "first visit" apart from "user deleted every task". `getItem` returns `null` for the first one and `"[]"` for the second. Only seed on `null`.
 - [ ] **[decide]** Do the 4 stat cards show numbers for **all** tasks, or only for the **selected category**?
 - [ ] **[decide]** Do the sidebar badges count done tasks too? (Screenshot: Work = 2 with one of them done, so **yes**.)
-- [ ] **[decide]** "High" stat = active high tasks only? (Screenshot: 2 high tasks, 1 done, card says 1, so **yes**. Your `getStat()` already does this.)
-- [ ] **[decide]** Sort order of the list. (Screenshot: newest `createdAt` first.)
+- [x] **[decide]** "High" stat = active high tasks only? (Screenshot: 2 high tasks, 1 done, card says 1, so **yes**. Your `getStat()` already does this.)
+- [x] **[decide]** Sort order of the list. (Screenshot: newest `createdAt` first.)
 - [ ] **[decide]** Should the selected category filter survive a refresh? (README only requires the *tasks* to survive.)
 - [ ] **[decide]** When the "Work" filter is on and the user adds a "Personal" task, what happens? (Task is hidden / switch to "All" / switch to "Personal".)
 - [ ] **[decide]** Should the form's category dropdown follow the selected sidebar category?
@@ -57,11 +57,11 @@ Legend: **[decide]** = a choice you should make (and be able to defend) before c
 
 ## 3. Startup
 
-- [ ] Load tasks from storage (with the fallback from section 1).
+- [x] Load tasks from storage (with the fallback from section 1).
 - [ ] Apply the first-visit rule from section 0.
 - [ ] Read saved filter (if you chose to keep it).
-- [ ] Call `render()` once.
-- [ ] Start the clock (section 4).
+- [x] Call `render()` once.
+- [x] Start the clock (section 4).
 - [ ] Attach event listeners once (sections 5, 7, 9, 10). Not inside `render()`, or you get duplicate listeners.
 - [ ] Delete the hard-coded sample tasks, badge numbers, stat numbers, date and time from `index.html`. Leave empty containers for JS to fill.
 
@@ -69,14 +69,14 @@ Legend: **[decide]** = a choice you should make (and be able to defend) before c
 
 ## 4. Header: date and live clock
 
-- [ ] Day name ("Sunday"), full date ("November 8, 2026"), time with seconds ("7:25:10 PM").
-- [ ] Use `toLocaleDateString` / `toLocaleTimeString` (or `Intl.DateTimeFormat`) with options, not hand-built strings. Pass `'en-US'` so it matches the screenshot on any machine.
+- [x] Day name ("Sunday"), full date ("November 8, 2026"), time with seconds ("7:25:10 PM").
+- [x] Use `toLocaleDateString` / `toLocaleTimeString` (or `Intl.DateTimeFormat`) with options, not hand-built strings. Pass `'en-US'` so it matches the screenshot on any machine.
   - Create the formatter once and reuse it; don't rebuild it every second.
-- [ ] Update every second with `setInterval`.
-- [ ] Update the day/date in the same tick, so it changes correctly at midnight.
-- [ ] Run the update once straight away at startup, so the page doesn't show an empty clock for 1 second.
+- [x] Update every second with `setInterval`.
+- [x] Update the day/date in the same tick, so it changes correctly at midnight.
+- [x] Run the update once straight away at startup, so the page doesn't show an empty clock for 1 second.
 - [ ] Wrap the time in a `<time datetime="...">` element (nice semantic touch).
-- [ ] Don't add `aria-live` to the clock. A screen reader would read it out every second.
+- [x] Don't add `aria-live` to the clock. A screen reader would read it out every second.
 
 ---
 
@@ -118,34 +118,34 @@ Legend: **[decide]** = a choice you should make (and be able to defend) before c
 ## 8. Render the task list
 
 - [ ] Show the tasks for the selected category, sorted by your section 0 rule.
-- [ ] "N tasks" text: handle "0 tasks", "1 task", "2 tasks" (singular vs plural).
-- [ ] Empty state: when the list is empty show a short message (e.g. "No tasks yet" / "No Work tasks").
-- [ ] Build each task from data. Set the title with **`textContent`, never `innerHTML`**. A title like `<img src=x onerror=alert(1)>` must show as plain text.
+- [x] "N tasks" text: handle "0 tasks", "1 task", "2 tasks" (singular vs plural).
+- [x] Empty state: when the list is empty show a short message (e.g. "No tasks yet" / "No Work tasks").
+- [x] Build each task from data. Set the title with **`textContent`, never `innerHTML`**. A title like `<img src=x onerror=alert(1)>` must show as plain text.
   - Good options: `<template>` + `cloneNode(true)`, or `document.createElement`.
-- [ ] Each task gets: `data-id`, category class (left border colour), `done` class when completed.
-- [ ] Priority badge and category badge text ("High", "Work"). Use a small lookup map for labels instead of capitalising strings by hand.
-- [ ] "Added Sun, Nov 8, 2026, 6:39 PM" from `createdAt`, using a date formatter (again: create once, reuse).
-- [ ] Icons: `icons.js` only fills `[data-icon]` once at page load. After you render new tasks, call `renderIcons(listElement)` so the new icons appear.
-- [ ] Consider building into a `DocumentFragment` and appending once, instead of appending tasks one by one.
-- [ ] Use a list element (`<ul>` / `<li>`) for the tasks instead of `<div>`s (semantic HTML is in the README rules).
+- [x] Each task gets: `data-id`, category class (left border colour), `done` class when completed.
+- [x] Priority badge and category badge text ("High", "Work"). Use a small lookup map for labels instead of capitalising strings by hand.
+- [x] "Added Sun, Nov 8, 2026, 6:39 PM" from `createdAt`, using a date formatter (again: create once, reuse).
+- [x] Icons: `icons.js` only fills `[data-icon]` once at page load. After you render new tasks, call `renderIcons(listElement)` so the new icons appear.
+- [x] Consider building into a `DocumentFragment` and appending once, instead of appending tasks one by one.
+- [x] Use a list element (`<ul>` / `<li>`) for the tasks instead of `<div>`s (semantic HTML is in the README rules).
 
 ---
 
 ## 9. Toggle done
 
-- [ ] One click listener on the task list (event delegation). Use `event.target.closest('.checkbox')` then `closest('[data-id]')` to get the id.
-- [ ] Call `toggleTask(id)` -> save -> render.
-- [ ] Update `aria-pressed` to match `isCompleted`.
+- [x] One click listener on the task list (event delegation). Use `event.target.closest('.checkbox')` then `closest('[data-id]')` to get the id.
+- [x] Call `toggleTask(id)` -> save -> render.
+- [x] Update `aria-pressed` to match `isCompleted`.
 - [x] Keep the `aria-label` the same in both states ("Done: “title”"). With `aria-pressed`, the screen reader already says "pressed" / "not pressed", so a changing label would say the state twice.
-- [ ] Swap icon `circle` <-> `circleCheck`.
+- [x] Swap icon `circle` <-> `circleCheck`.
 - [ ] Keep keyboard focus on the same checkbox after re-render (re-render replaces the element, so focus is lost). Find the new button by `data-id` and call `.focus()`.
 
 ---
 
 ## 10. Delete
 
-- [ ] Same delegated listener: `closest('.btn-delete')`.
-- [ ] Call `deleteTask(id)` -> save -> render.
+- [x] Same delegated listener: `closest('.btn-delete')`.
+- [x] Call `deleteTask(id)` -> save -> render.
 - [ ] Focus after delete: move focus to the next task's delete button, or the previous one, or the title input if the list is now empty. Otherwise keyboard users get thrown back to the top of the page.
 - [ ] **[decide]** Ask for confirmation or not? (The screenshot has none. An "Undo" is nicer than `confirm()` but is extra work.)
 

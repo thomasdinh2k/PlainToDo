@@ -10,8 +10,28 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', {
     hour12: true      // "PM"
 });
 
+// Header clock: each one is created once and reused every second
+const dayFormatter = new Intl.DateTimeFormat('en-US', {
+    weekday: 'long',   // "Sunday"
+});
+
+const fullDateFormatter = new Intl.DateTimeFormat('en-US', {
+    month: 'long',     // "November"
+    day: 'numeric',    // "8"
+    year: 'numeric',   // "2026"
+});
+
+const clockFormatter = new Intl.DateTimeFormat('en-US', {
+    hour: 'numeric',   // "7"
+    minute: '2-digit', // "25"
+    second: '2-digit', // "10"  → "7:25:10 PM"
+});
+
+export function formatDay(date)      { return dayFormatter.format(date); }
+export function formatFullDate(date) { return fullDateFormatter.format(date); }
+export function formatClock(date)    { return clockFormatter.format(date); }
 // Turns a timestamp (ms) into text like "Sun, Nov 8, 2026, 6:39 PM"
-export function formatDate(timeStamp) {
+export function formatFullDateTime(timeStamp) {
     return dateFormatter.format(timeStamp);
 }
 

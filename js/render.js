@@ -1,5 +1,5 @@
 import {renderIcons} from "./icons.js";
-import {capitalize, formatDate} from "./helpers.js";
+import {capitalize, formatFullDateTime} from "./helpers.js";
 
 // Render task + state
 export function render(taskList, { category = 'all' } = {}) {
@@ -104,7 +104,7 @@ export function renderTask({ id, title, category, priority, isCompleted, created
     // Dates
     const time = li.querySelector('time');
     time.dateTime = new Date(createdAt).toISOString();
-    time.textContent = formatDate(createdAt);
+    time.textContent = formatFullDateTime(createdAt);
 
     // Delete
     const deleteButton =li.querySelector('.btn-delete')
@@ -124,4 +124,10 @@ export function bindEvent({ onDelete, onToggle }) {
         isDelete && onDelete(id);
         isToggle && onToggle(id);
     })
+}
+
+export function renderClock({ day, date, time }) {
+    els.clock.time.textContent = time;
+    els.clock.day.textContent = day;
+    els.clock.date.textContent = date;
 }

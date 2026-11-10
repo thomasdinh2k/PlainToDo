@@ -1,5 +1,6 @@
 import {CATEGORIES, PRIORITIES, STORAGE_KEY} from "./constants.js";
-import {bindEvent, render} from "./render.js";
+import {bindEvent, render, renderClock} from "./render.js";
+import {getClockText} from "./clock.js";
 
 // Todo: Convert to OOP master object later
 let masterTaskList = [];
@@ -188,4 +189,7 @@ export function commit(newTaskList) {
         onDelete: (id) => commit(deleteTask(id)),
         onToggle: (id) => commit((toggleTask(id)))
     });
+
+    renderClock(getClockText());
+    setInterval(() => renderClock(getClockText()), 1000);
 })();
