@@ -120,7 +120,13 @@
     /* Clock font: SF Mono on Mac, Consolas on Windows. */
     --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
-    --text-xl: 1.75rem;
+    /* Type scale (measured from the mockup, rounded to whole px) */
+    --text-xs: .75rem;      /* 12px: "Categories", stat labels, badges, "Added …" */
+    --text-sm: .8125rem;    /* 13px: date under "Sunday", "6 tasks" */
+    --text-base: .875rem;   /* 14px: body text, task titles, category names, buttons */
+    --text-md: .9375rem;    /* 15px: "Taskboard", input and select text */
+    --text-lg: 1rem;        /* 16px: clock */
+    --text-xl: 1.25rem;     /* 20px: "Sunday", stat numbers */
 
     /* ---------- Measured sizes (for reference) ---------- */
     --size-sidebar: 176px;
@@ -128,7 +134,7 @@
     --size-add-button: 120px;
     --size-stat-height: 56px;
     --size-check: 22px;
-    --size-dot: 15px;
+    --size-dot: 10px;
     --size-badge-height: 22px;
     --size-delete-height: 26px;
 }

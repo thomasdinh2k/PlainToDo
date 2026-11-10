@@ -5,18 +5,21 @@
 body {
     height: 100dvh;
     font-family: var(--font-sans);
+    font-size: var(--text-base);
+    color: var(--color-text);
     background: var(--color-bg-page);
     display: grid;
-    grid-template-columns: 16rem minmax(0, 1fr);
+    grid-template-columns: var(--size-sidebar) minmax(0, 1fr);
     grid-template-rows: minmax(0, 1fr);
-    gap: 1rem;
-    padding: .5rem;
+    gap: var(--space-layout-gap);
+    padding: var(--space-page);
 }
 
 aside, main {
     background: var(--color-bg-surface);
+    border: var(--border-hairline) solid var(--color-border-surface);
     border-radius: var(--border-radius-xl);
-    padding: 1rem;
+    padding: var(--space-panel-padding);
 }
 
 .block {
@@ -33,6 +36,7 @@ aside, main {
 /** Shared */
 .sub-text {
     color: var(--color-primary);
+    font-size: var(--text-sm);
     font-weight: 500;
 }
 
@@ -41,11 +45,11 @@ button {
 }
 
 .badge {
-    font-size: .875rem;
+    font-size: var(--text-xs);
     line-height: 1;
     color: var(--on-tint);
     background-color: var(--tint);
-    padding: .25rem var(--space-badge-x);
+    padding: var(--space-1) var(--space-badge-x);
     border-radius: var(--border-radius-md);
 }
 
@@ -54,11 +58,15 @@ aside {
         display: flex;
         /*border: 1px solid;*/
         margin-bottom: 1.5rem;
-        color: var(--color-primary);
+        color: var(--color-primary-strong);
         font-weight: 600;
-        font-size: 1.25rem;
+        font-size: var(--text-md);
         align-items: center;
-        gap: .5rem;
+        gap: var(--space-2);
+
+        .icon {
+            color: var(--color-primary);
+        }
     }
 
     .badge {
@@ -68,13 +76,17 @@ aside {
     }
 
     .categories {
-        color: var(--color-border-input);
+        & > .sub-text {
+            display: block;
+            font-size: var(--text-xs);
+            margin-bottom: var(--space-2);
+        }
 
         .categories-item {
             display: flex;
             align-items: center;
-            padding-block: .75rem;
-            gap: .75rem;
+            padding-block: var(--space-nav-row-y);
+            gap: var(--space-nav-dot-gap);
 
             .dot {
                 width: var(--size-dot);
@@ -95,7 +107,7 @@ aside {
 main {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--space-section-gap);
     min-height: 0;
 
     header {
@@ -126,10 +138,16 @@ main {
             background-color: var(--color-primary);
             color: var(--color-on-primary);
             display: flex;
-            gap: .5rem;
-            padding: .5rem 1rem;
-            border-radius: var(--border-radius-xl);
+            gap: var(--space-2);
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--border-radius-md);
             align-items: center;
+            font-size: var(--text-lg);
+
+            .icon {
+                width: 1em;
+                height: 1em;
+            }
 
             span {
                 font-family: var(--font-mono);
@@ -140,48 +158,61 @@ main {
     .stat {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        gap: 1rem;
+        gap: var(--space-stat-gap);
 
-        & > div {
+        .stat-tile {
+            background-color: var(--tint);
             border-radius: var(--border-radius-xl);
-            padding: .5rem 1rem;
+            padding: var(--space-stat-padding);
         }
 
-        .stat-tile { background-color: var(--tint) };
-        .stat-label { color: var(--on-tint-soft) };
+        .stat-label {
+            color: var(--on-tint-soft);
+            font-size: var(--text-xs);
+            line-height: 1.3;
+        }
+
         .stat-value {
             color: var(--on-tint);
             font-size: var(--text-xl);
             font-weight: 600;
+            line-height: 1;
         }
     }
 
     form {
-        border: 1px solid var(--color-border-surface);
-        border-radius: .5rem;
-        padding: 1rem;
+        border: var(--border-thin) solid var(--color-border-surface);
+        border-radius: var(--border-radius-md);
+        padding: var(--space-form-padding);
         display: flex;
         flex-direction: column;
-        gap: .5rem;
+        gap: var(--space-form-gap);
 
         & > div {
             display: grid;
-            grid-template-columns: 1fr 1fr 150px;
-            gap: .5rem;
+            grid-template-columns: 1fr 1fr var(--size-add-button);
+            gap: var(--space-form-gap);
+        }
+
+        input, select, button {
+            height: var(--size-control-height);
         }
 
         input, select {
-            /*height: 100%;*/
             width: 100%;
-            border: 1px solid var(--color-border-input);
+            border: var(--border-thin) solid var(--color-border-input);
             border-radius: var(--border-radius-md);
-            padding-left: 1rem;
-            padding-block: .5rem;
+            padding-inline: var(--space-control-x);
             background-color: var(--color-bg-surface);
+            color: var(--color-text);
+            font-size: var(--text-md);
+        }
+
+        input::placeholder {
+            color: var(--color-text-muted);
         }
 
         select {
-            height: 100%;
             cursor: pointer;
         }
 
@@ -189,11 +220,12 @@ main {
             background: var(--color-primary);
             border-radius: var(--border-radius-md);
             color: var(--color-on-primary);
-            border: 1px solid black;
+            border: var(--border-thin) solid var(--color-primary-strong);
+            font-weight: 500;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
+            gap: var(--space-2);
         }
     }
 
@@ -204,7 +236,7 @@ main {
 
         & > span {
             display:block;
-            padding-block: 1rem;
+            padding-block: var(--space-4);
         }
 
         & > .sub-text {
@@ -221,14 +253,14 @@ main {
             column-gap: var(--space-row-gap);
             border-left: var(--stripe-width) solid var(--accent);
             border-bottom: 1px solid var(--color-divider);
-            padding-block: .75rem;
+            padding-block: var(--space-3);
             padding-right: var(--space-row-end);
-            margin-bottom: .5rem;
+            margin-bottom: var(--space-2);
 
             .title {
                 display: block;
                 color: var(--color-text);
-                margin-bottom: .25rem;
+                margin-bottom: var(--space-1);
             }
 
             &.done {
@@ -249,8 +281,8 @@ main {
                 color: var(--color-check);
 
                 .icon {
-                    width: 1.75em;
-                    height: 1.75em;
+                    width: var(--size-check);
+                    height: var(--size-check);
                 }
             }
 
@@ -259,30 +291,32 @@ main {
                 flex-wrap: wrap;    /* on narrow screens the date moves to its own line */
                 align-items: center;
                 gap: var(--space-badge-gap);
-                font-size: 0.875rem;
+                font-size: var(--text-xs);
 
                 .createdAt {
                     line-height: 1;
                     color: var(--color-text-muted);
+                    /* the gap after the last badge is a little wider than between badges */
+                    margin-left: calc(var(--space-meta-gap) - var(--space-badge-gap));
                 }
             }
 
             button.btn-delete {
                 display: flex;
                 align-items: center;
-                gap: .375rem;
+                gap: var(--space-1-5);
+                height: var(--size-delete-height);
                 border-radius: var(--border-radius-md);
                 background-color: var(--color-danger-bg);
                 border: var(--border-thin) solid var(--color-danger-border);
-                padding: .25rem .75rem;
+                padding-inline: var(--space-2-5);
                 color: var(--color-danger-text);
 
                 .icon {
-                    width: 1rem;
-                    height: 1rem;
+                    width: 1em;
+                    height: 1em;
                 }
             }
         }
     }
 }
-
