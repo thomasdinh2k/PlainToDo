@@ -1,9 +1,7 @@
-"use strict"
-
 // Mock task list (50 tasks). Same shape as `initialTaskList` in js/index.js.
 // category: work | personal | study
 // priority: low | medium | high
-const mockTaskList = [
+export const mockTaskList = [
     {
         id: "m01",
         title: "Prepare quarterly report",

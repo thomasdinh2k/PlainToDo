@@ -10,8 +10,7 @@
 
     <link rel="stylesheet" href="css/style.css">
 
-    <script src="js/icons.js" defer></script>
-    <script src="js/index.js" defer></script>
+    <script type="module" src="js/index.js"></script>
     <title>PlainToDo</title>
 </head>
 <body>
@@ -21,25 +20,25 @@
             <span class="block">Taskboard</span>
         </header>
 
-        <div class="categories">
+        <div class="categories" data-el="category-list">
             <span class="sub-text">Categories</span>
 
-            <div class="categories-item cat-all">
+            <div class="categories-item cat-all" data-category="all">
                 <div class="dot"></div>
                 <span>All tasks</span>
                 <div class="badge">6</div>
             </div>
-            <div class="categories-item cat-work">
+            <div class="categories-item cat-work" data-category="work">
                 <div class="dot"></div>
                 <span>Work</span>
                 <div class="badge">2</div>
             </div>
-            <div class="categories-item cat-personal">
+            <div class="categories-item cat-personal" data-category="personal">
                 <div class="dot"></div>
                 <span>Personal</span>
                 <div class="badge">2</div>
             </div>
-            <div class="categories-item cat-study">
+            <div class="categories-item cat-study" data-category="study">
                 <div class="dot"></div>
                 <span>Study</span>
                 <div class="badge">2</div>
@@ -50,31 +49,31 @@
     <main>
         <header>
             <div class="date">
-                <span>Sunday</span>
-                <span class="sub-text">November 8, 2026</span>
+                <span data-el="day">Sunday</span>
+                <span class="sub-text" data-el="date">November 8, 2026</span>
             </div>
             <div class="time">
                 <span data-icon="clock"></span>
-                <span>7:25:10 PM</span>
+                <span data-el="time">7:25:10 PM</span>
             </div>
         </header>
 
         <dl class="stat">
             <div class="stat-tile stat-total">
                 <dt class="stat-label">Total</dt>
-                <dd class="stat-value">6</dd>
+                <dd class="stat-value" data-stat="total">6</dd>
             </div>
             <div class="stat-tile stat-active">
                 <dt class="stat-label">Active</dt>
-                <dd class="stat-value">4</dd>
+                <dd class="stat-value" data-stat="active">4</dd>
             </div>
             <div class="stat-tile stat-done">
                 <dt class="stat-label">Done</dt>
-                <dd class="stat-value">2</dd>
+                <dd class="stat-value" data-stat="done">2</dd>
             </div>
             <div class="stat-tile stat-high">
                 <dt class="stat-label">High</dt>
-                <dd class="stat-value">1</dd>
+                <dd class="stat-value" data-stat="high">1</dd>
             </div>
         </dl>
 
@@ -109,119 +108,42 @@
         </form>
 
 
-        <div class="task-list">
-            <span class="sub-text">6 tasks</span>
+        <section class="task-list">
+            <span data-el="task-count" class="sub-text">6 tasks</span>
 
-            <div class="task cat-work" data-id="t1">
-                <button class="checkbox" type="button" aria-pressed="false" aria-label="Mark “Prepare quarterly report” as done">
-                    <span data-icon="circle"></span>
-                </button>
-                <div>
-                    <span class="title">Prepare quarterly report</span>
-                    <div class="task-description">
-                        <div class="badge priority-high">High</div>
-                        <div class="badge cat-work">Work</div>
-                        <span class="createdAt">Added Sun, Nov 8, 2026, 6:39 PM</span>
-                    </div>
-                </div>
-                <button class="btn-delete" type="button" aria-label="Delete “Prepare quarterly report”">
-                    <span data-icon="trash"></span>
-                    Delete
-                </button>
+            <ul class="task-items" data-el="task-list" role="list">
+
+            </ul>
+
+            <!-- Empty state -->
+            <div class="empty-state" data-el="empty-state" role="status" hidden>
+                <span class="empty-state-icon" data-icon="clipboard"></span>
+                <p class="empty-state-title" data-el="empty-title">No tasks yet</p>
+                <p class="empty-state-text">Add your first task using the form above.</p>
             </div>
-
-            <div class="task cat-work done" data-id="t2">
-                <button class="checkbox" type="button" aria-pressed="true" aria-label="Mark “Fix login page layout bug” as done">
-                    <span data-icon="circleCheck"></span>
-                </button>
-                <div>
-                    <span class="title">Fix login page layout bug</span>
-                    <div class="task-description">
-                        <div class="badge priority-high">High</div>
-                        <div class="badge cat-work">Work</div>
-                        <span class="createdAt">Added Sun, Nov 8, 2026, 4:04 PM</span>
-                    </div>
-                </div>
-                <button class="btn-delete" type="button" aria-label="Delete “Fix login page layout bug”">
-                    <span data-icon="trash"></span>
-                    Delete
-                </button>
-            </div>
-
-            <div class="task cat-personal" data-id="t3">
-                <button class="checkbox" type="button" aria-pressed="false" aria-label="Mark “Book dentist appointment” as done">
-                    <span data-icon="circle"></span>
-                </button>
-                <div>
-                    <span class="title">Book dentist appointment</span>
-                    <div class="task-description">
-                        <div class="badge priority-medium">Medium</div>
-                        <div class="badge cat-personal">Personal</div>
-                        <span class="createdAt">Added Sat, Nov 7, 2026, 6:14 PM</span>
-                    </div>
-                </div>
-                <button class="btn-delete" type="button" aria-label="Delete “Book dentist appointment”">
-                    <span data-icon="trash"></span>
-                    Delete
-                </button>
-            </div>
-
-            <div class="task cat-study" data-id="t4">
-                <button class="checkbox" type="button" aria-pressed="false" aria-label="Mark “Read CSS grid chapter” as done">
-                    <span data-icon="circle"></span>
-                </button>
-                <div>
-                    <span class="title">Read CSS grid chapter</span>
-                    <div class="task-description">
-                        <div class="badge priority-low">Low</div>
-                        <div class="badge cat-study">Study</div>
-                        <span class="createdAt">Added Fri, Nov 6, 2026, 6:54 PM</span>
-                    </div>
-                </div>
-                <button class="btn-delete" type="button" aria-label="Delete “Read CSS grid chapter”">
-                    <span data-icon="trash"></span>
-                    Delete
-                </button>
-            </div>
-
-            <div class="task cat-personal done" data-id="t5">
-                <button class="checkbox" type="button" aria-pressed="true" aria-label="Mark “Renew gym membership” as done">
-                    <span data-icon="circleCheck"></span>
-                </button>
-                <div>
-                    <span class="title">Renew gym membership</span>
-                    <div class="task-description">
-                        <div class="badge priority-low">Low</div>
-                        <div class="badge cat-personal">Personal</div>
-                        <span class="createdAt">Added Thu, Nov 5, 2026, 5:54 PM</span>
-                    </div>
-                </div>
-                <button class="btn-delete" type="button" aria-label="Delete “Renew gym membership”">
-                    <span data-icon="trash"></span>
-                    Delete
-                </button>
-            </div>
-
-            <div class="task cat-study" data-id="t6">
-                <button class="checkbox" type="button" aria-pressed="false" aria-label="Mark “Practice async JavaScript” as done">
-                    <span data-icon="circle"></span>
-                </button>
-                <div>
-                    <span class="title">Practice async JavaScript</span>
-                    <div class="task-description">
-                        <div class="badge priority-medium">Medium</div>
-                        <div class="badge cat-study">Study</div>
-                        <span class="createdAt">Added Wed, Nov 4, 2026, 6:34 PM</span>
-                    </div>
-                </div>
-                <button class="btn-delete" type="button" aria-label="Delete “Practice async JavaScript”">
-                    <span data-icon="trash"></span>
-                    Delete
-                </button>
-            </div>
-
-        </div>
+        </section>
     </main>
+
+<!-- Task Template -->
+    <template id="task-template">
+        <li class="task">
+            <button class="checkbox" type="button">
+                <span data-icon></span>
+            </button>
+            <div>
+                <span class="title"></span>
+                <div class="task-description">
+                    <div class="badge" data-slot="priority"></div>
+                    <div class="badge" data-slot="category"></div>
+                    <span class="createdAt">Added <time></time></span>
+                </div>
+            </div>
+            <button class="btn-delete" type="button">
+                <span data-icon="trash"></span>
+                Delete
+            </button>
+        </li>
+    </template>
 
 
 </body>
