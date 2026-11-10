@@ -3,14 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&display=swap">
+
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/icons.js" defer></script>
     <script src="js/index.js" defer></script>
     <title>PlainToDo</title>
 </head>
 <body>
     <aside>
         <header>
-            <div>Logo</div>
+            <span data-icon="checklist"></span>
             <span class="block">Taskboard</span>
         </header>
 
@@ -47,7 +54,7 @@
                 <span>November 8, 2026</span>
             </div>
             <div class="time">
-                <div>Icon</div>
+                <span data-icon="clock"></span>
                 <span>7:25:10 PM</span>
             </div>
         </header>
@@ -88,7 +95,10 @@
                 </label>
 
 
-                <button type="submit">Add task</button>
+                <button type="submit">
+                    <span data-icon="plus"></span>
+                    Add task
+                </button>
             </div>
         </form>
 
@@ -102,7 +112,10 @@
                     <div class="badge">High</div>
                     <div class="badge">Work</div>
                 </div>
-                <button>Delete</button>
+                <button>
+                    <span data-icon="trash"></span>
+                    Delete
+                </button>
             </div>
             <div class="task">
                 <div class="checkbox">O</div>
@@ -111,7 +124,10 @@
                     <div class="badge">High</div>
                     <div class="badge">Work</div>
                 </div>
-                <button>Delete</button>
+                <button>
+                    <span data-icon="trash"></span>
+                    Delete
+                </button>
             </div>
             <div class="task">
                 <div class="checkbox">O</div>
@@ -120,7 +136,10 @@
                     <div class="badge">High</div>
                     <div class="badge">Work</div>
                 </div>
-                <button>Delete</button>
+                <button>
+                    <span data-icon="trash"></span>
+                    Delete
+                </button>
             </div>
             <div class="task">
                 <div class="checkbox">O</div>
@@ -129,7 +148,10 @@
                     <div class="badge">High</div>
                     <div class="badge">Work</div>
                 </div>
-                <button>Delete</button>
+                <button>
+                    <span data-icon="trash"></span>
+                    Delete
+                </button>
             </div>
         </div>
     </main>

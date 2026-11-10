@@ -2,7 +2,7 @@
 
 Build the task manager shown below using HTML, CSS, and JavaScript.
 
-<img width="718" height="767" alt="image" src="https://gist.github.com/user-attachments/assets/5457b76f-7f5d-4266-815d-9635c57777b4" />
+<img width="718" height="767" alt="image" src="public/img/UI-reference.png" />
 
 **Time limit:** xx hours
 
