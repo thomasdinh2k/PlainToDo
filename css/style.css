@@ -14,7 +14,7 @@ body {
 
 aside, main {
     background: var(--color-bg-surface);
-    border-radius: .75rem;
+    border-radius: var(--border-radius-xl);
     padding: 1rem;
 }
 
@@ -105,22 +105,22 @@ aside {
 
 main {
     header {
-        border: 1px solid;
-
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-bottom: 1rem;
 
         font-weight: 500;
 
         .date {
             display: flex;
             flex-direction: column;
-
             color: var(--color-primary);
             & > span:first-child {
-                font-size: 1.75rem;
-                font-weight: 500;
+                color: var(--color-primary-strong);
+                font-size: var(--text-xl);
+                font-weight: 600;
+                line-height: 1.2;
             }
 
             /*& > span:last-child {*/
@@ -134,40 +134,64 @@ main {
             display: flex;
             gap: .5rem;
             padding: .5rem 1rem;
-            border-radius: .5rem;
+            border-radius: var(--border-radius-xl);
+            align-items: center;
 
             span {
                 font-family: var(--font-mono);
-                /* every digit gets the same width, so the clock doesn't wobble as it ticks */
-                font-variant-numeric: tabular-nums;
             }
         }
     }
 
     .stat {
-        border: 1px solid;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 1rem;
+        margin-bottom: 1rem;
 
         & > div {
             background-color: var(--color-cat-all-bg);
+            border-radius: var(--border-radius-xl);
+            padding: .5rem 1rem;
+
+            & > span:last-child {
+                font-size: var(--text-xl);
+            }
         }
     }
 
     form {
-        border: 1px solid var(--color-cat-all-bg);
+        border: 1px solid var(--color-border-surface);
         border-radius: .5rem;
         padding: 1rem;
+        margin-bottom: 1rem;
 
         & > div {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 1fr 1fr 150px;
             gap: .5rem;
         }
 
         input, select {
+            height: 100%;
             width: 100%;
+            border: 1px solid var(--color-border-input);
+            border-radius: var(--border-radius-md);
+            margin-bottom: .5rem;
+            padding-left: 1rem;
+            padding-block: .5rem;
+            background-color: var(--color-bg-surface);
+        }
+
+        button {
+            background: var(--color-primary);
+            border-radius: var(--border-radius-md);
+            color: var(--color-on-primary);
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
     }
 
