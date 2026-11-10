@@ -1,5 +1,6 @@
 @import 'reset.css';
 @import 'variables.css';
+@import 'theme.css';
 
 body {
     height: 100dvh;
@@ -42,44 +43,10 @@ button {
 .badge {
     font-size: .875rem;
     line-height: 1;
-    color: var(--text-color);
-    background-color: var(--badge-background);
+    color: var(--on-tint);
+    background-color: var(--tint);
     padding: .25rem var(--space-badge-x);
     border-radius: var(--border-radius-md);
-}
-
-.blue {
-    --dot-color: var(--color-cat-work);
-    --badge-background: var(--color-cat-work-bg);
-    --text-color: var(--color-cat-work-text);
-}
-
-.pink {
-    --dot-color: var(--color-cat-personal);
-    --badge-background: var(--color-cat-personal-bg);
-    --text-color: var(--color-cat-personal-text);
-}
-
-.green {
-    --dot-color: var(--color-cat-study);
-    --badge-background: var(--color-cat-study-bg);
-    --text-color: var(--color-cat-study-text);
-}
-
-/* Priority badges */
-.high {
-    --badge-background: var(--color-priority-high-bg);
-    --text-color: var(--color-priority-high-text);
-}
-
-.medium {
-    --badge-background: var(--color-priority-medium-bg);
-    --text-color: var(--color-priority-medium-text);
-}
-
-.low {
-    --badge-background: var(--color-priority-low-bg);
-    --text-color: var(--color-priority-low-text);
 }
 
 aside {
@@ -104,48 +71,17 @@ aside {
         color: var(--color-border-input);
 
         .categories-item {
-            --dot-color: var(--color-cat-all);
-            --badge-background: var(--color-cat-all-bg);
-            --text-color: var(--color-cat-all-text);
-
             display: flex;
             align-items: center;
             padding-block: .75rem;
             gap: .75rem;
 
-
-            /*&.blue {*/
-            /*    --dot-color: var(--color-cat-work);*/
-            /*    --badge-background: var(--color-cat-work-bg);*/
-            /*    --text-color: var(--color-cat-work-text);*/
-            /*}*/
-
-            /*&.pink {*/
-            /*    --dot-color: var(--color-cat-personal);*/
-            /*    --badge-background: var(--color-cat-personal-bg);*/
-            /*    --text-color: var(--color-cat-personal-text);*/
-            /*}*/
-
-            /*&.green {*/
-            /*    --dot-color: var(--color-cat-study);*/
-            /*    --badge-background: var(--color-cat-study-bg);*/
-            /*    --text-color: var(--color-cat-study-text);*/
-            /*}*/
-
             .dot {
                 width: var(--size-dot);
                 height: var(--size-dot);
-                background-color: var(--dot-color);
+                background-color: var(--accent);
                 border-radius: 100%;
             }
-
-            /*.badge {*/
-            /*    color: var(--text-color);*/
-            /*    background-color: var(--badge-background);*/
-            /*    padding: 0 0.65rem;*/
-            /*    border-radius: 35%;*/
-            /*    margin-left: auto;*/
-            /*}*/
 
             border-bottom: 1px solid var(--color-divider-subtle);
 
@@ -205,16 +141,18 @@ main {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 1rem;
-        /*margin-bottom: 1rem;*/
 
         & > div {
-            background-color: var(--color-cat-all-bg);
             border-radius: var(--border-radius-xl);
             padding: .5rem 1rem;
+        }
 
-            & > span:last-child {
-                font-size: var(--text-xl);
-            }
+        .stat-tile { background-color: var(--tint) };
+        .stat-label { color: var(--on-tint-soft) };
+        .stat-value {
+            color: var(--on-tint);
+            font-size: var(--text-xl);
+            font-weight: 600;
         }
     }
 
@@ -281,9 +219,7 @@ main {
             grid-template-columns: auto minmax(0, 1fr) auto;
             align-items: center;
             column-gap: var(--space-row-gap);
-
-            /* --dot-color comes from the row's category class (.blue / .pink / .green) */
-            border-left: var(--stripe-width) solid var(--dot-color);
+            border-left: var(--stripe-width) solid var(--accent);
             border-bottom: 1px solid var(--color-divider);
             padding-block: .75rem;
             padding-right: var(--space-row-end);

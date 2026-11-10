@@ -24,22 +24,22 @@
         <div class="categories">
             <span class="sub-text">Categories</span>
 
-            <div class="categories-item">
+            <div class="categories-item cat-all">
                 <div class="dot"></div>
                 <span>All tasks</span>
                 <div class="badge">6</div>
             </div>
-            <div class="categories-item blue">
+            <div class="categories-item cat-work">
                 <div class="dot"></div>
                 <span>Work</span>
                 <div class="badge">2</div>
             </div>
-            <div class="categories-item pink">
+            <div class="categories-item cat-personal">
                 <div class="dot"></div>
                 <span>Personal</span>
                 <div class="badge">2</div>
             </div>
-            <div class="categories-item green">
+            <div class="categories-item cat-study">
                 <div class="dot"></div>
                 <span>Study</span>
                 <div class="badge">2</div>
@@ -59,18 +59,24 @@
             </div>
         </header>
 
-        <div class="stat">
-            <div>
-                <span class="block">Total</span>
-                <span>6</span>
+        <dl class="stat">
+            <div class="stat-tile stat-total">
+                <dt class="stat-label">Total</dt>
+                <dd class="stat-value">6</dd>
             </div>
-            <div>
-                <span class="block">Active</span><span>4</span></div>
-            <div>
-                <span class="block">Done</span><span>2</span></div>
-            <div>
-                <span class="block">High</span><span>1</span></div>
-        </div>
+            <div class="stat-tile stat-active">
+                <dt class="stat-label">Active</dt>
+                <dd class="stat-value">4</dd>
+            </div>
+            <div class="stat-tile stat-done">
+                <dt class="stat-label">Done</dt>
+                <dd class="stat-value">2</dd>
+            </div>
+            <div class="stat-tile stat-high">
+                <dt class="stat-label">High</dt>
+                <dd class="stat-value">1</dd>
+            </div>
+        </dl>
 
         <form>
             <label>
@@ -106,15 +112,15 @@
         <div class="task-list">
             <span class="sub-text">6 tasks</span>
 
-            <div class="task blue" data-id="t1">
+            <div class="task cat-work" data-id="t1">
                 <button class="checkbox" type="button" aria-pressed="false" aria-label="Mark “Prepare quarterly report” as done">
                     <span data-icon="circle"></span>
                 </button>
                 <div>
                     <span class="title">Prepare quarterly report</span>
                     <div class="task-description">
-                        <div class="badge high">High</div>
-                        <div class="badge blue">Work</div>
+                        <div class="badge priority-high">High</div>
+                        <div class="badge cat-work">Work</div>
                         <span class="createdAt">Added Sun, Nov 8, 2026, 6:39 PM</span>
                     </div>
                 </div>
@@ -124,15 +130,15 @@
                 </button>
             </div>
 
-            <div class="task blue done" data-id="t2">
+            <div class="task cat-work done" data-id="t2">
                 <button class="checkbox" type="button" aria-pressed="true" aria-label="Mark “Fix login page layout bug” as done">
                     <span data-icon="circleCheck"></span>
                 </button>
                 <div>
                     <span class="title">Fix login page layout bug</span>
                     <div class="task-description">
-                        <div class="badge high">High</div>
-                        <div class="badge blue">Work</div>
+                        <div class="badge priority-high">High</div>
+                        <div class="badge cat-work">Work</div>
                         <span class="createdAt">Added Sun, Nov 8, 2026, 4:04 PM</span>
                     </div>
                 </div>
@@ -142,15 +148,15 @@
                 </button>
             </div>
 
-            <div class="task pink" data-id="t3">
+            <div class="task cat-personal" data-id="t3">
                 <button class="checkbox" type="button" aria-pressed="false" aria-label="Mark “Book dentist appointment” as done">
                     <span data-icon="circle"></span>
                 </button>
                 <div>
                     <span class="title">Book dentist appointment</span>
                     <div class="task-description">
-                        <div class="badge medium">Medium</div>
-                        <div class="badge pink">Personal</div>
+                        <div class="badge priority-medium">Medium</div>
+                        <div class="badge cat-personal">Personal</div>
                         <span class="createdAt">Added Sat, Nov 7, 2026, 6:14 PM</span>
                     </div>
                 </div>
@@ -160,15 +166,15 @@
                 </button>
             </div>
 
-            <div class="task green" data-id="t4">
+            <div class="task cat-study" data-id="t4">
                 <button class="checkbox" type="button" aria-pressed="false" aria-label="Mark “Read CSS grid chapter” as done">
                     <span data-icon="circle"></span>
                 </button>
                 <div>
                     <span class="title">Read CSS grid chapter</span>
                     <div class="task-description">
-                        <div class="badge low">Low</div>
-                        <div class="badge green">Study</div>
+                        <div class="badge priority-low">Low</div>
+                        <div class="badge cat-study">Study</div>
                         <span class="createdAt">Added Fri, Nov 6, 2026, 6:54 PM</span>
                     </div>
                 </div>
@@ -178,15 +184,15 @@
                 </button>
             </div>
 
-            <div class="task pink done" data-id="t5">
+            <div class="task cat-personal done" data-id="t5">
                 <button class="checkbox" type="button" aria-pressed="true" aria-label="Mark “Renew gym membership” as done">
                     <span data-icon="circleCheck"></span>
                 </button>
                 <div>
                     <span class="title">Renew gym membership</span>
                     <div class="task-description">
-                        <div class="badge low">Low</div>
-                        <div class="badge pink">Personal</div>
+                        <div class="badge priority-low">Low</div>
+                        <div class="badge cat-personal">Personal</div>
                         <span class="createdAt">Added Thu, Nov 5, 2026, 5:54 PM</span>
                     </div>
                 </div>
@@ -196,15 +202,15 @@
                 </button>
             </div>
 
-            <div class="task green" data-id="t6">
+            <div class="task cat-study" data-id="t6">
                 <button class="checkbox" type="button" aria-pressed="false" aria-label="Mark “Practice async JavaScript” as done">
                     <span data-icon="circle"></span>
                 </button>
                 <div>
                     <span class="title">Practice async JavaScript</span>
                     <div class="task-description">
-                        <div class="badge medium">Medium</div>
-                        <div class="badge green">Study</div>
+                        <div class="badge priority-medium">Medium</div>
+                        <div class="badge cat-study">Study</div>
                         <span class="createdAt">Added Wed, Nov 4, 2026, 6:34 PM</span>
                     </div>
                 </div>
