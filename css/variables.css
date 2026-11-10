@@ -6,7 +6,7 @@
 
 :root {
     /* ---------- Brand ---------- */
-    --color-primary: #524bb1;          /* Add task button, clock, check ring, labels, logo icon */
+    --color-primary: #584ab6;          /* Add task button, clock, check ring, labels, logo icon */
     --color-primary-strong: #3b3484;   /* Headings ("Sunday", "Taskboard"), Add-task button border */
     --color-on-primary: #ffffff;       /* Text/icons on primary background */
 
@@ -24,7 +24,7 @@
 
     /* ---------- Stat tiles (bg / label / number) ---------- */
     --color-stat-total-bg: #eeedfd;
-    --color-stat-total-label: #524bb1;
+    --color-stat-total-label: #584ab6;
     --color-stat-total-value: #3b3484;
 
     --color-stat-active-bg: #e8f1fa;
@@ -65,7 +65,7 @@
     --color-priority-low-text: #314f18;
 
     /* ---------- Status / actions ---------- */
-    --color-check: #524bb1;            /* Empty circle (not done) */
+    --color-check: #584ab6;            /* Empty circle (not done) */
     --color-check-done: #476c23;       /* Filled circle (done); tick is white */
     --color-danger-border: #d15650;    /* Delete button */
     --color-danger-bg: #f9eceb;
@@ -76,6 +76,10 @@
     --border-thin: 1px;                /* Add-task box, inputs, buttons, Delete */
     --border-check: 2px;               /* Check circle ring */
     --stripe-width: 3px;               /* Category stripe on the left of a task */
+
+    --border-radius-sm: .25rem;
+    --border-radius-md: .5rem;
+    --border-radius-xl: .75rem;
 
     /* ---------- Spacing scale ---------- */
     --space-1: 4px;
@@ -115,6 +119,8 @@
     --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     /* Clock font: SF Mono on Mac, Consolas on Windows. */
     --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+    --text-xl: 1.75rem;
 
     /* ---------- Measured sizes (for reference) ---------- */
     --size-sidebar: 176px;
