@@ -111,6 +111,7 @@
     --space-badge-gap: var(--space-1-5);     /* Between badges */
     --space-meta-gap: var(--space-2);        /* Last badge → "Added …" */
     --space-badge-x: var(--space-1-5);         /* Badge side padding */
+    --space-empty-padding: 40px var(--space-4); /* Inside the empty-state box (not in mockup) */
 
     /* ---------- Typography ---------- */
     /* Inter (loaded from Google Fonts in index.html) is a free look-alike of the
@@ -137,4 +138,5 @@
     --size-dot: 10px;
     --size-badge-height: 22px;
     --size-delete-height: 26px;
+    --size-empty-icon: 48px;                 /* Round icon in the empty state (not in mockup) */
 }

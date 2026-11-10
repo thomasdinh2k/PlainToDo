@@ -1,5 +1,3 @@
-"use strict"
-
 // Tabler Icons (https://tabler.io/icons) — MIT license.
 // Every icon draws in `currentColor`, so set the CSS `color` on the icon
 // or on its parent to change its colour.
@@ -24,6 +22,13 @@ const ICONS = {
     clock: `<svg ${ICON_OUTLINE_ATTRS}>
         <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
         <path d="M12 7v5l3 3" />
+    </svg>`,
+
+    // Tabler: clipboard-check (empty state)
+    clipboard: `<svg ${ICON_OUTLINE_ATTRS}>
+        <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+        <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+        <path d="M9 14l2 2l4 -4" />
     </svg>`,
 
     // Tabler: plus
@@ -53,7 +58,7 @@ const ICONS = {
     </svg>`,
 };
 
-function renderIcons(root = document) {
+export function renderIcons(root = document) {
     root.querySelectorAll('[data-icon]').forEach((el) => {
         const svg = ICONS[el.dataset.icon];
 

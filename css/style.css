@@ -246,6 +246,56 @@ main {
             padding-top: 0;
         }
 
+        /* Shown instead of the list when there are no tasks */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: var(--space-1);
+            padding: var(--space-empty-padding);
+            border: var(--border-thin) dashed var(--color-border-surface);
+            border-radius: var(--border-radius-xl);
+
+            /* `display: flex` would beat the browser's [hidden] rule, so put it back */
+            &[hidden] {
+                display: none;
+            }
+
+            .empty-state-icon {
+                display: grid;
+                place-items: center;
+                width: var(--size-empty-icon);
+                height: var(--size-empty-icon);
+                margin-bottom: var(--space-2);
+                border-radius: 100%;
+                background-color: var(--color-bg-page);
+                color: var(--color-primary);
+
+                .icon {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                }
+            }
+
+            .empty-state-title {
+                color: var(--color-primary-strong);
+                font-size: var(--text-md);
+                font-weight: 600;
+            }
+
+            .empty-state-text {
+                color: var(--color-text-muted);
+                font-size: var(--text-sm);
+            }
+        }
+
+        /* Remove the browser's default bullets and left indent */
+        .task-items {
+            list-style: none;
+            padding: 0;
+        }
+
         .task {
             display: grid;
             grid-template-columns: auto minmax(0, 1fr) auto;

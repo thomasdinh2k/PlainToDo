@@ -1,43 +1,67 @@
-"use strict"
-console.log('STS Angular Assessment 1 ✨');
-
-const taskObj = {
-    id: "…",
-    title: "Prepare quarterly report",
-    category: "work",   // work | personal | study
-    priority: "high",   // low | medium | high
-    isCompleted: false,
-    createdAt: 1762603140000  // timestamp
-}
+import {CATEGORIES, PRIORITIES, STORAGE_KEY} from "./constants.js";
+import {bindEvent, render} from "./render.js";
 
 // Todo: Convert to OOP master object later
 let masterTaskList = [];
 
 const initialTaskList = [
     {
-        id: "a1",
+        id: "t1",
         title: "Prepare quarterly report",
         category: "work",
         priority: "high",
         isCompleted: false,
-        createdAt: 1762603140000,
+        createdAt: 1794137940000, // Sun, Nov 8, 2026, 6:39 PM
     },
     {
-        id: "b2",
+        id: "t2",
         title: "Fix login page layout bug",
         category: "work",
         priority: "high",
         isCompleted: true,
-        createdAt: 1762592640000,
+        createdAt: 1794128640000, // Sun, Nov 8, 2026, 4:04 PM
+    },
+    {
+        id: "t3",
+        title: "Book dentist appointment",
+        category: "personal",
+        priority: "medium",
+        isCompleted: false,
+        createdAt: 1794050040000, // Sat, Nov 7, 2026, 6:14 PM
+    },
+    {
+        id: "t4",
+        title: "Read CSS grid chapter",
+        category: "study",
+        priority: "low",
+        isCompleted: false,
+        createdAt: 1793966040000, // Fri, Nov 6, 2026, 6:54 PM
+    },
+    {
+        id: "t5",
+        title: "Renew gym membership",
+        category: "personal",
+        priority: "low",
+        isCompleted: true,
+        createdAt: 1793876040000, // Thu, Nov 5, 2026, 5:54 PM
+    },
+    {
+        id: "t6",
+        title: "Practice async JavaScript",
+        category: "study",
+        priority: "medium",
+        isCompleted: false,
+        createdAt: 1793792040000, // Wed, Nov 4, 2026, 6:34 PM
     },
 ];
 
-const CATEGORIES = ['work', 'personal', 'study'];
-const PRIORITIES = ['low', 'medium', 'high'];
-
 //region Local Storage
 function writeToStorage(key, value) {
-    localStorage.setItem(key, JSON.stringify(value ?? []));
+    try {
+        localStorage.setItem(key, JSON.stringify(value ?? []));
+    } catch (e) {
+        console.log("Error while writing to storage", e);
+    }
 }
 
 function readFromStorage(key) {
@@ -46,7 +70,7 @@ function readFromStorage(key) {
 //endregion
 
 function getTaskListFromStorage() {
-    const raw = readFromStorage('tasks')
+    const raw = readFromStorage(STORAGE_KEY.tasks)
 
     try {
         return raw ? JSON.parse(raw) : [];
@@ -75,11 +99,14 @@ function filterTasks({ category, priority, isCompleted } = {}) {
 
 
 function saveTaskList() {
-    writeToStorage('tasks', masterTaskList);
+    writeToStorage(STORAGE_KEY.tasks, masterTaskList);
 }
 
 function addTask(title, category, priority = 'medium') {
-    if (title.trim() === '') {
+    if (
+        typeof title !== 'string' ||
+        title.trim() === ''
+    ) {
         throw new Error('Task title can\'t be empty');
     }
 
@@ -96,7 +123,6 @@ function addTask(title, category, priority = 'medium') {
         createdAt: Date.now()
     };
 
-    masterTaskList = [...masterTaskList, task];
     return masterTaskList;
 }
 
@@ -110,15 +136,12 @@ function toggleTask(taskId) {
     const taskIdx = findTaskIndex(taskId);
     const task = masterTaskList[taskIdx];
     masterTaskList = masterTaskList.with(taskIdx, { ...task, isCompleted: !task.isCompleted })
-
     return masterTaskList;
 }
 
 
-function deleteTask(taskId) {
-    const taskIdx = findTaskIndex(taskId);
-
-    masterTaskList = [...masterTaskList].filter((_, i) => i !== taskIdx);
+export function deleteTask(taskId) {
+    masterTaskList = masterTaskList.filter(t => t.id !== taskId);
     return masterTaskList;
 }
 
@@ -141,8 +164,28 @@ function getStat() {
     }
 }
 
+// To make sure every "changes" is saved to storage + rendered
+export function commit(newTaskList) {
+    masterTaskList = newTaskList;
+    saveTaskList();
+    render(masterTaskList);
+}
+
 
 // Main function when startup
 (function () {
-    masterTaskList = getTaskListFromStorage();
+    let tasks
+    try {
+        tasks = getTaskListFromStorage();
+    } catch (e) {
+        console.error(e);
+        tasks = [];
+    }
+
+    commit(tasks)
+
+    bindEvent({
+        onDelete: (id) => commit(deleteTask(id)),
+        onToggle: (id) => commit((toggleTask(id)))
+    });
 })();
