@@ -136,17 +136,12 @@ aside {
         }
 
         .categories-item {
-            /* Reset the browser's button look so the row looks like plain text.
-               The side padding is pulled back out with negative margins, so the text
-               stays aligned with "Categories" while the hover background has room. */
-            width: calc(100% + 2 * var(--space-2));
-            margin-inline: calc(-1 * var(--space-2));
             background: none;
             border: none;
             border-radius: var(--border-radius-md);
-            padding: var(--space-nav-row-y) var(--space-2);
+            padding: var(--space-nav-row-y) 0;
 
-            /*TODO: Enable this if filter complete*/
+            /* TODO: Enable this if have time to do filter*/
             /* Hover / keyboard focus: the row takes its category's tint */
             /*&:hover, &:focus-visible {*/
             /*    background-color: var(--tint);*/
