@@ -17,33 +17,43 @@
     <aside>
         <header>
             <span data-icon="checklist"></span>
-            <span class="block">Taskboard</span>
+            <h1 class="block">Taskboard</h1>
         </header>
 
-        <div class="categories" data-el="category-list">
-            <span class="sub-text">Categories</span>
+        <nav class="categories" data-el="category-list" aria-labelledby="categories-heading">
+            <h2 id="categories-heading" class="sub-text">Categories</h2>
 
-            <div class="categories-item cat-all" data-category="all">
-                <div class="dot"></div>
-                <span>All tasks</span>
-                <div class="badge"></div>
-            </div>
-            <div class="categories-item cat-work" data-category="work">
-                <div class="dot"></div>
-                <span>Work</span>
-                <div class="badge"></div>
-            </div>
-            <div class="categories-item cat-personal" data-category="personal">
-                <div class="dot"></div>
-                <span>Personal</span>
-                <div class="badge"></div>
-            </div>
-            <div class="categories-item cat-study" data-category="study">
-                <div class="dot"></div>
-                <span>Study</span>
-                <div class="badge"></div>
-            </div>
-        </div>
+            <ul class="categories-list" role="list">
+                <li>
+                    <button type="button" class="categories-item cat-all" data-category="all" aria-pressed="true">
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="categories-name">All tasks</span>
+                        <span class="badge"></span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="categories-item cat-work" data-category="work" aria-pressed="false">
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="categories-name">Work</span>
+                        <span class="badge"></span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="categories-item cat-personal" data-category="personal" aria-pressed="false">
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="categories-name">Personal</span>
+                        <span class="badge"></span>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="categories-item cat-study" data-category="study" aria-pressed="false">
+                        <span class="dot" aria-hidden="true"></span>
+                        <span class="categories-name">Study</span>
+                        <span class="badge"></span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
     </aside>
 
     <main>
@@ -58,7 +68,7 @@
             </div>
         </header>
 
-        <dl class="stat">
+        <dl class="stat" aria-label="Task summary">
             <div class="stat-tile stat-total">
                 <dt class="stat-label">Total</dt>
                 <dd class="stat-value" data-stat="total"></dd>
@@ -77,7 +87,7 @@
             </div>
         </dl>
 
-        <form id="add-form" data-el="add-form">
+        <form id="add-form" data-el="add-form" aria-label="Add task">
             <label for="title" class="visually-hidden">Title</label>
             <input type="text" name="title" id="title" placeholder="Prepare sprint demo" maxlength="200" autofocus required>
             <div>
@@ -108,7 +118,8 @@
 
 
         <section class="task-list">
-            <span data-el="task-count" class="sub-text"></span>
+            <h2 id="tasks-heading" class="visually-hidden">Task List</h2>
+            <p data-el="task-count" class="sub-text"></p>
 
             <ul class="task-items" data-el="task-list" role="list">
             </ul>
@@ -129,11 +140,11 @@
                 <span data-icon></span>
             </button>
             <div>
-                <span class="title"></span>
+                <h3 class="title"></h3>
                 <div class="task-description">
                     <div class="badge" data-slot="priority"></div>
                     <div class="badge" data-slot="category"></div>
-                    <span class="createdAt">Added <time></time></span>
+                    <span class="createdAt">Added <time datetime="1970-01-01T00:00Z"></time></span>
                 </div>
             </div>
             <button class="btn-delete" type="button">
