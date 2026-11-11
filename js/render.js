@@ -53,6 +53,7 @@ export function getElements() {
 
         // Header
         clock: {
+            root: query('[data-el="clock"]'),
             day:  query('[data-el="day"]'),
             date: query('[data-el="date"]'),
             time: query('[data-el="time"]'),
@@ -126,8 +127,24 @@ export function bindEvent({ onDelete, onToggle }) {
     })
 }
 
+export function bindClock({ onClick }) {
+    els.clock.root.addEventListener('click', onClick);
+}
+
 export function renderClock({ day, date, time }) {
     els.clock.time.textContent = time;
     els.clock.day.textContent = day;
     els.clock.date.textContent = date;
+}
+
+export function renderStat(stats) {
+    Object.keys(stats).forEach(statKey => {
+        els.stats[statKey].textContent = stats[statKey]
+    })
+}
+
+export function renderCategoryCounts(counts) {
+    Object.keys(counts).forEach(countKey => {
+        els.categoryBadges[countKey].textContent = counts[countKey];
+    })
 }

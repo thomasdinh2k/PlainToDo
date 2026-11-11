@@ -13,7 +13,7 @@ Legend: **[decide]** = a choice you should make (and be able to defend) before c
 - [ ] **[decide]** First visit (nothing in localStorage): start with an empty list, or seed it with `initialTaskList`?
   - Tip: tell "first visit" apart from "user deleted every task". `getItem` returns `null` for the first one and `"[]"` for the second. Only seed on `null`.
 - [ ] **[decide]** Do the 4 stat cards show numbers for **all** tasks, or only for the **selected category**?
-- [ ] **[decide]** Do the sidebar badges count done tasks too? (Screenshot: Work = 2 with one of them done, so **yes**.)
+- [x] **[decide]** Do the sidebar badges count done tasks too? (Screenshot: Work = 2 with one of them done, so **yes**.)
 - [x] **[decide]** "High" stat = active high tasks only? (Screenshot: 2 high tasks, 1 done, card says 1, so **yes**. Your `getStat()` already does this.)
 - [x] **[decide]** Sort order of the list. (Screenshot: newest `createdAt` first.)
 - [ ] **[decide]** Should the selected category filter survive a refresh? (README only requires the *tasks* to survive.)
@@ -63,7 +63,7 @@ Legend: **[decide]** = a choice you should make (and be able to defend) before c
 - [x] Call `render()` once.
 - [x] Start the clock (section 4).
 - [ ] Attach event listeners once (sections 5, 7, 9, 10). Not inside `render()`, or you get duplicate listeners.
-- [ ] Delete the hard-coded sample tasks, badge numbers, stat numbers, date and time from `index.html`. Leave empty containers for JS to fill.
+- [x] Delete the hard-coded sample tasks, badge numbers, stat numbers, date and time from `index.html`. Leave empty containers for JS to fill.
 
 ---
 
@@ -82,7 +82,7 @@ Legend: **[decide]** = a choice you should make (and be able to defend) before c
 
 ## 5. Sidebar categories (filter + counts)
 
-- [ ] Badge counts: All = total, Work/Personal/Study = count per category (includes done tasks, see section 0).
+- [x] Badge counts: All = total, Work/Personal/Study = count per category (includes done tasks, see section 0).
 - [ ] Clicking a category sets the selected category in state, then `render()`.
 - [ ] Highlight the selected item (class + `aria-current="true"` or `aria-pressed`).
 - [ ] The items are `<div>`s now. Make them `<button>`s so keyboard users can Tab to them and press Enter/Space. (Also fixes part of your "keyboard tabbing" UI item.)
@@ -93,7 +93,7 @@ Legend: **[decide]** = a choice you should make (and be able to defend) before c
 
 ## 6. Stats cards
 
-- [ ] Total, Active, Done, High from `getStat()`.
+- [x] Total, Active, Done, High from `getStat()`.
 - [ ] Follow your section 0 choice (all tasks vs selected category).
 - [ ] Check: Active + Done = Total, always.
 
@@ -101,17 +101,17 @@ Legend: **[decide]** = a choice you should make (and be able to defend) before c
 
 ## 7. Add task form
 
-- [ ] Listen to the form's `submit` event (not the button's `click`), so the Enter key works for free.
-- [ ] `event.preventDefault()` so the page doesn't reload.
-- [ ] Read values with `new FormData(form)` (or the elements by `name`).
+- [x] Listen to the form's `submit` event (not the button's `click`), so the Enter key works for free.
+- [x] `event.preventDefault()` so the page doesn't reload.
+- [x] Read values with `new FormData(form)` (or the elements by `name`).
 - [ ] Empty / spaces-only title: do **not** add. Show a message to the user instead of throwing an uncaught error.
   - Set `aria-invalid="true"` on the input and link the message with `aria-describedby`.
   - Clear the error when the user starts typing again.
 - [ ] `addTask` still throws on bad input (that's fine, it guards the core). The form handler catches it and shows the message.
-- [ ] After a successful add: clear the title, keep focus in the title input so the user can type the next one.
-- [ ] **[decide]** Keep or reset the category/priority dropdowns after adding.
+- [x] After a successful add: clear the title, keep focus in the title input so the user can type the next one.
+- [x] **[decide]** Keep or reset the category/priority dropdowns after adding.
 - [ ] Apply the section 0 rule for "added task is hidden by the current filter".
-- [ ] The text input and both selects have no visible or hidden label text. Add `aria-label` or visually-hidden label text (a11y; your manager may check this).
+- [x] The text input and both selects have no visible or hidden label text. Add `aria-label` or visually-hidden label text (a11y; your manager may check this).
 
 ---
 
@@ -154,7 +154,7 @@ Legend: **[decide]** = a choice you should make (and be able to defend) before c
 ## 11. Extra (only if time allows)
 
 - [ ] Sync between two open tabs with the `storage` event (`window.addEventListener('storage', ...)`).
-- [ ] A dev-only way to load `mock/tasks.js` (50 tasks) to test a long list. Don't ship it switched on.
+- [x] A dev-only way to load `mock/tasks.js` (50 tasks) to test a long list. Don't ship it switched on.
 - [ ] Keyboard shortcut to focus the title input (e.g. `/`).
 
 ---
