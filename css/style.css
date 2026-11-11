@@ -75,6 +75,13 @@ aside {
         align-items: center;
         gap: var(--space-2);
 
+        /* Drop the browser's big bold h1 look; the header sets the size and weight */
+        h1 {
+            font-size: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+        }
+
         .icon {
             color: var(--color-primary);
         }
@@ -87,30 +94,42 @@ aside {
     }
 
     .categories {
-        & > .sub-text {
-            display: block;
+        & > h2.sub-text {
             font-size: var(--text-xs);
+            line-height: inherit;
             margin-bottom: var(--space-2);
         }
 
+        .categories-list {
+            list-style: none;
+            padding: 0;
+        }
+
         .categories-item {
+            /* Reset the browser's button look so the row looks like plain text */
+            width: 100%;
+            background: none;
+            border: none;
+            border-bottom: 1px solid var(--color-divider-subtle);
+            padding: var(--space-nav-row-y) 0;
+            text-align: left;
+            color: var(--color-text);
+
             display: flex;
             align-items: center;
-            padding-block: var(--space-nav-row-y);
             gap: var(--space-nav-dot-gap);
 
             .dot {
+                flex-shrink: 0;
                 width: var(--size-dot);
                 height: var(--size-dot);
                 background-color: var(--accent);
                 border-radius: 100%;
             }
+        }
 
-            border-bottom: 1px solid var(--color-divider-subtle);
-
-            span {
-                color: var(--color-text);
-            }
+        li:last-child .categories-item {
+            border-bottom: none;
         }
     }
 }
@@ -245,8 +264,7 @@ main {
         flex: 1;
         overflow-y: auto;
 
-        & > span {
-            display:block;
+        & > [data-el="task-count"] {
             padding-block: var(--space-4);
         }
 
@@ -318,8 +336,11 @@ main {
             padding-right: var(--space-row-end);
             margin-bottom: var(--space-2);
 
+            /* h3: reset the browser's heading size and weight to body text */
             .title {
-                display: block;
+                font-size: inherit;
+                font-weight: inherit;
+                line-height: inherit;
                 color: var(--color-text);
                 margin-bottom: var(--space-1);
             }
