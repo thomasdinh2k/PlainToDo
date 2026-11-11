@@ -1,4 +1,4 @@
-// Mock task list (50 tasks). Same shape as `initialTaskList` in js/index.js.
+// Mock task list (50 tasks). Same shape as `TASK_KEYS` in js/config/constants.js.
 // category: work | personal | study
 // priority: low | medium | high
 export const mockTaskList = [

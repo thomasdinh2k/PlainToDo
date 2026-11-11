@@ -1,6 +1,7 @@
-const form = document.getElementById('add-form');
+export function bindForm(form, { onAddTask }) {
+    // Only auto-focus on device with precise pointer
+    const canAutoFocus = window.matchMedia('(hover: hover) and (pointer:fine)').matches;
 
-export function bindForm({ onAddTask }) {
     if (canAutoFocus) form.elements.title.focus();
 
     form.addEventListener("submit", event => {
@@ -18,6 +19,3 @@ export function bindForm({ onAddTask }) {
         }
     })
 }
-
-// Only auto-focus on device with precise pointer
-const canAutoFocus = window.matchMedia('(hover: hover) and (pointer:fine)').matches;
