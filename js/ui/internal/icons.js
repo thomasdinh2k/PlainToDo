@@ -70,5 +70,3 @@ export function renderIcons(root = document) {
         el.innerHTML = svg;
     });
 }
-
-renderIcons();
