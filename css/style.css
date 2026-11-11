@@ -129,12 +129,24 @@ aside {
 
             /* Hover: the row takes its category's tint */
             &:hover {
-                /*background-color: var(--tint);*/
+                background-color: var(--tint);
+                .badge {
+                    background-color: var(--color-bg-surface);
+                }
+            }
 
-                /*!* the badge uses the same tint, so lift it to white to keep it visible *!*/
-                /*.badge {*/
-                /*    background-color: var(--color-bg-surface);*/
-                /*}*/
+            /* Selected: the row takes its category's tint and the name turns bold.
+               "All tasks" is left out to match reference!. */
+            &[aria-pressed="true"]:not(.cat-all) {
+                background-color: var(--tint);
+
+                .categories-name {
+                    color: var(--on-tint);
+                    font-weight: 600;
+                }
+                .badge {
+                    background-color: var(--color-bg-surface);
+                }
             }
             text-align: left;
             color: var(--color-text);
