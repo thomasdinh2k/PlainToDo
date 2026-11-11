@@ -77,27 +77,26 @@
             </div>
         </dl>
 
-        <form>
-            <label>
-                <input type="text" name="title" id="title" placeholder="Prepare sprint demo">
-            </label>
+        <form id="add-form" data-el="add-form">
+            <label for="title" class="visually-hidden">Title</label>
+            <input type="text" name="title" id="title" placeholder="Prepare sprint demo" maxlength="200" autofocus required>
             <div>
-                <label for="category">
-                    <select name="category" id="category">
-                        <option value="work">Work</option>
-                        <option value="personal">Personal</option>
-                        <option value="study">Study</option>
-                    </select>
-                </label>
+                <label for="category" class="visually-hidden">Category</label>
+                <select name="category" id="category">
+                    <option value="work">Work</option>
+                    <option value="personal">Personal</option>
+                    <option value="study">Study</option>
+                </select>
 
 
-                <label for="priority">
-                    <select name="priority" id="priority">
-                        <option value="high">High</option>
-                        <option value="medium" selected>Medium</option>
-                        <option value="low">Low</option>
-                    </select>
+                <label for="priority" class="visually-hidden">
+                    Priority
                 </label>
+                <select name="priority" id="priority">
+                    <option value="high">High</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="low">Low</option>
+                </select>
 
 
                 <button type="submit">

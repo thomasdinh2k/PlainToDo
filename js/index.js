@@ -1,6 +1,7 @@
 import {CATEGORIES, PRIORITIES, STORAGE_KEY} from "./constants.js";
 import {bindEvent, render, renderClock} from "./render.js";
 import {getClockText} from "./clock.js";
+import {bindForm} from "./form.js";
 
 // Todo: Convert to OOP master object later
 let masterTaskList = [];
@@ -103,7 +104,7 @@ function saveTaskList() {
     writeToStorage(STORAGE_KEY.tasks, masterTaskList);
 }
 
-function addTask(title, category, priority = 'medium') {
+function addTask({ title, category, priority }) {
     if (
         typeof title !== 'string' ||
         title.trim() === ''
@@ -124,7 +125,7 @@ function addTask(title, category, priority = 'medium') {
         createdAt: Date.now()
     };
 
-    return masterTaskList;
+    return [...masterTaskList, task];
 }
 
 function findTaskIndex(taskId) {
@@ -189,6 +190,10 @@ export function commit(newTaskList) {
         onDelete: (id) => commit(deleteTask(id)),
         onToggle: (id) => commit((toggleTask(id)))
     });
+
+    bindForm({
+        onAddTask: (formData) => commit(addTask(formData)),
+    })
 
     renderClock(getClockText());
     setInterval(() => renderClock(getClockText()), 1000);
