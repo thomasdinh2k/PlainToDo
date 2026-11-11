@@ -1,4 +1,4 @@
-import {CATEGORIES, PRIORITIES, STORAGE_KEY} from "./constants.js";
+import {CATEGORIES, PRIORITIES, STORAGE_KEY, TASK_KEYS} from "./constants.js";
 import {bindClock, bindEvent, render, renderCategoryCounts, renderClock, renderStat} from "./render.js";
 import {getClockText} from "./clock.js";
 import {bindForm} from "./form.js";
@@ -25,7 +25,8 @@ function getTaskListFromStorage() {
     const raw = readFromStorage(STORAGE_KEY.tasks)
 
     try {
-        return raw ? JSON.parse(raw) : [];
+        const parsed = raw ? JSON.parse(raw) : [];
+        return Array.isArray(parsed) ? parsed : [];
     } catch (e) {
         throw new Error('Error while getting tasks from storage', { cause: e });
     }
@@ -138,12 +139,23 @@ export function commit(newTaskList) {
     renderCategoryCounts(getCategoryCounts());
 }
 
+// Filter invalid task list to prevent error if user modify directly from localStorage
+function isTaskValid(t) {
+    // Case 1: Check valid shape
+    if (t === null || typeof t !== 'object') return false
+
+    // Case 2: Have all valid keys
+    if (!TASK_KEYS.every(k => Object.hasOwn(t, k))) return false
+
+    // Case 3: Valid categories & priorities
+    return CATEGORIES.includes(t.category) && PRIORITIES.includes(t.priority);
+}
 
 // Main function when startup
 (function () {
     let tasks
     try {
-        tasks = getTaskListFromStorage();
+        tasks = getTaskListFromStorage().filter(t => isTaskValid(t));
     } catch (e) {
         console.error(e);
         tasks = [];
