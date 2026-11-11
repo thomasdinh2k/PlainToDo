@@ -9,6 +9,7 @@
     --color-primary: #584ab6;          /* Add task button, clock, check ring, labels, logo icon */
     --color-primary-strong: #3b3484;   /* Headings ("Sunday", "Taskboard"), Add-task button border */
     --color-on-primary: #ffffff;       /* Text/icons on primary background */
+    --color-focus-ring: var(--color-primary); /* Keyboard focus outline (≥3:1 on page and surface) */
 
     /* ---------- Surfaces & lines ---------- */
     --color-bg-page: #eeedfd;          /* Lavender page background */

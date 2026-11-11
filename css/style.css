@@ -67,6 +67,13 @@ button:active {
     transform: scale(.97);
 }
 
+/* Keyboard focus: one themed ring for every control. :focus-visible skips mouse
+   clicks on buttons, so the click effects above don't get an outline. */
+:focus-visible {
+    outline: 2px solid var(--color-focus-ring);
+    outline-offset: 2px;
+}
+
 .badge {
     font-size: var(--text-xs);
     line-height: 1;
@@ -139,13 +146,14 @@ aside {
             border-radius: var(--border-radius-md);
             padding: var(--space-nav-row-y) var(--space-2);
 
-            /* Hover: the row takes its category's tint */
-            &:hover {
-                background-color: var(--tint);
-                .badge {
-                    background-color: var(--color-bg-surface);
-                }
-            }
+            /*TODO: Enable this if filter complete*/
+            /* Hover / keyboard focus: the row takes its category's tint */
+            /*&:hover, &:focus-visible {*/
+            /*    background-color: var(--tint);*/
+            /*    .badge {*/
+            /*        background-color: var(--color-bg-surface);*/
+            /*    }*/
+            /*}*/
 
             /* Selected: the row takes its category's tint and the name turns bold.
                "All tasks" is left out to match reference!. */
@@ -300,7 +308,8 @@ main {
             font-size: var(--text-md);
         }
 
-        input:hover, select:hover {
+        input:hover, select:hover,
+        input:focus-visible, select:focus-visible {
             border-color: var(--color-primary);
         }
 
@@ -323,7 +332,7 @@ main {
             justify-content: center;
             gap: var(--space-2);
 
-            &:hover {
+            &:hover, &:focus-visible {
                 background: var(--color-primary-strong);
             }
         }
@@ -437,8 +446,8 @@ main {
                     height: var(--size-check);
                 }
 
-                /* Hover: the circle grows a little */
-                &:hover .icon {
+                /* Hover / keyboard focus: the circle grows a little */
+                &:hover .icon, &:focus-visible .icon {
                     transform: scale(1.1);
                 }
             }
@@ -469,8 +478,8 @@ main {
                 padding-inline: var(--space-2-5);
                 color: var(--color-danger-text);
 
-                /* Hover: a slightly deeper red background */
-                &:hover {
+                /* Hover / keyboard focus: a slightly deeper red background */
+                &:hover, &:focus-visible {
                     background-color: color-mix(in srgb, var(--color-danger-bg), var(--color-danger-border) 18%);
                 }
 
