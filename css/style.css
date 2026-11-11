@@ -44,6 +44,17 @@ button {
     cursor: pointer;
 }
 
+/* Hover/click feedback shared by every button: colors fade, a click presses it in */
+@media (prefers-reduced-motion: no-preference) {
+    button, input, select, .icon {
+        transition: background-color .15s, border-color .15s, color .15s, transform .1s;
+    }
+}
+
+button:active {
+    transform: scale(.97);
+}
+
 .badge {
     font-size: var(--text-xs);
     line-height: 1;
@@ -106,12 +117,25 @@ aside {
         }
 
         .categories-item {
-            /* Reset the browser's button look so the row looks like plain text */
-            width: 100%;
+            /* Reset the browser's button look so the row looks like plain text.
+               The side padding is pulled back out with negative margins, so the text
+               stays aligned with "Categories" while the hover background has room. */
+            width: calc(100% + 2 * var(--space-2));
+            margin-inline: calc(-1 * var(--space-2));
             background: none;
             border: none;
-            border-bottom: 1px solid var(--color-divider-subtle);
-            padding: var(--space-nav-row-y) 0;
+            border-radius: var(--border-radius-md);
+            padding: var(--space-nav-row-y) var(--space-2);
+
+            /* Hover: the row takes its category's tint */
+            &:hover {
+                /*background-color: var(--tint);*/
+
+                /*!* the badge uses the same tint, so lift it to white to keep it visible *!*/
+                /*.badge {*/
+                /*    background-color: var(--color-bg-surface);*/
+                /*}*/
+            }
             text-align: left;
             color: var(--color-text);
 
@@ -128,8 +152,9 @@ aside {
             }
         }
 
-        li:last-child .categories-item {
-            border-bottom: none;
+        /* Divider sits on the <li>, so the rounded hover background doesn't bend it */
+        .categories-list li:not(:last-child) {
+            border-bottom: 1px solid var(--color-divider-subtle);
         }
     }
 }
@@ -238,6 +263,10 @@ main {
             font-size: var(--text-md);
         }
 
+        input:hover, select:hover {
+            border-color: var(--color-primary);
+        }
+
         input::placeholder {
             color: var(--color-text-muted);
         }
@@ -256,6 +285,10 @@ main {
             align-items: center;
             justify-content: center;
             gap: var(--space-2);
+
+            &:hover {
+                background: var(--color-primary-strong);
+            }
         }
     }
 
@@ -366,6 +399,11 @@ main {
                     width: var(--size-check);
                     height: var(--size-check);
                 }
+
+                /* Hover: the circle grows a little */
+                &:hover .icon {
+                    transform: scale(1.1);
+                }
             }
 
             .task-description {
@@ -393,6 +431,11 @@ main {
                 border: var(--border-thin) solid var(--color-danger-border);
                 padding-inline: var(--space-2-5);
                 color: var(--color-danger-text);
+
+                /* Hover: a slightly deeper red background */
+                &:hover {
+                    background-color: color-mix(in srgb, var(--color-danger-bg), var(--color-danger-border) 18%);
+                }
 
                 .icon {
                     width: 1em;
