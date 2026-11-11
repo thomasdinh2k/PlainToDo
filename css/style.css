@@ -8,11 +8,19 @@ body {
     font-size: var(--text-base);
     color: var(--color-text);
     background: var(--color-bg-page);
+
     display: grid;
     grid-template-columns: var(--size-sidebar) minmax(0, 1fr);
     grid-template-rows: minmax(0, 1fr);
     gap: var(--space-layout-gap);
     padding: var(--space-page);
+
+    @media (width <= 560px) {
+        height: auto;
+        min-height: 100dvh;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
 }
 
 aside, main {
@@ -31,6 +39,10 @@ aside, main {
     width: 1.25rem;
     height: 1.25rem;
     vertical-align: middle;
+    flex-shrink: 0;
+}
+
+[data-icon] {
     flex-shrink: 0;
 }
 
@@ -181,7 +193,6 @@ main {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        /*margin-bottom: 1rem;*/
 
         font-weight: 500;
 
@@ -195,10 +206,6 @@ main {
                 font-weight: 600;
                 line-height: 1.2;
             }
-
-            /*& > span:last-child {*/
-
-            /*}*/
         }
 
         .time {
@@ -226,6 +233,10 @@ main {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: var(--space-stat-gap);
+
+        @media (width <= 560px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
 
         .stat-tile {
             background-color: var(--tint);
@@ -256,9 +267,18 @@ main {
         gap: var(--space-form-gap);
 
         & > div {
-            display: grid;
-            grid-template-columns: 1fr 1fr var(--size-add-button);
+            display: flex;
+            flex-wrap: wrap;
             gap: var(--space-form-gap);
+
+            & > select {
+                flex: 100 1 var(--size-add-button);
+                min-width: 0;
+            }
+
+            & > button {
+                flex: 1 0 var(--size-add-button);
+            }
         }
 
         input, select, button {
@@ -310,7 +330,7 @@ main {
         overflow-y: auto;
 
         & > [data-el="task-count"] {
-            padding-block: var(--space-4);
+            padding-block: var(--space-2);
         }
 
         & > .sub-text {
@@ -320,7 +340,7 @@ main {
             padding-top: 0;
         }
 
-        /* Shown instead of the list when there are no tasks */
+        /* when there are no tasks */
         .empty-state {
             display: flex;
             flex-direction: column;
