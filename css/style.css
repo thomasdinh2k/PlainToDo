@@ -193,6 +193,7 @@ main {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
 
         font-weight: 500;
 
@@ -205,6 +206,10 @@ main {
                 font-size: var(--text-xl);
                 font-weight: 600;
                 line-height: 1.2;
+            }
+
+            @media (width <= 300px) {
+                order: 2;
             }
         }
 
