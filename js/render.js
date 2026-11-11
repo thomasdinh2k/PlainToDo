@@ -131,10 +131,19 @@ export function bindClock({ onClick }) {
     els.clock.root.addEventListener('click', onClick);
 }
 
+// setText fn with cache value
+const lastText = new WeakMap();
+
+function setText(el, value) {
+    if (lastText.get(el) === value) return;
+    lastText.set(el, value);
+    el.textContent = value;
+}
+
 export function renderClock({ day, date, time }) {
-    els.clock.time.textContent = time;
-    els.clock.day.textContent = day;
-    els.clock.date.textContent = date;
+    setText(els.clock.time, time);
+    setText(els.clock.day, day);
+    setText(els.clock.date, date);
 }
 
 export function renderStat(stats) {
