@@ -1,61 +1,11 @@
 import {CATEGORIES, PRIORITIES, STORAGE_KEY} from "./constants.js";
-import {bindEvent, render, renderClock} from "./render.js";
+import {bindClock, bindEvent, render, renderCategoryCounts, renderClock, renderStat} from "./render.js";
 import {getClockText} from "./clock.js";
 import {bindForm} from "./form.js";
+import {mockTaskList} from "../mock/tasks.js";
 
 // Todo: Convert to OOP master object later
 let masterTaskList = [];
-
-const initialTaskList = [
-    {
-        id: "t1",
-        title: "Prepare quarterly report",
-        category: "work",
-        priority: "high",
-        isCompleted: false,
-        createdAt: 1794137940000, // Sun, Nov 8, 2026, 6:39 PM
-    },
-    {
-        id: "t2",
-        title: "Fix login page layout bug",
-        category: "work",
-        priority: "high",
-        isCompleted: true,
-        createdAt: 1794128640000, // Sun, Nov 8, 2026, 4:04 PM
-    },
-    {
-        id: "t3",
-        title: "Book dentist appointment",
-        category: "personal",
-        priority: "medium",
-        isCompleted: false,
-        createdAt: 1794050040000, // Sat, Nov 7, 2026, 6:14 PM
-    },
-    {
-        id: "t4",
-        title: "Read CSS grid chapter",
-        category: "study",
-        priority: "low",
-        isCompleted: false,
-        createdAt: 1793966040000, // Fri, Nov 6, 2026, 6:54 PM
-    },
-    {
-        id: "t5",
-        title: "Renew gym membership",
-        category: "personal",
-        priority: "low",
-        isCompleted: true,
-        createdAt: 1793876040000, // Thu, Nov 5, 2026, 5:54 PM
-    },
-    {
-        id: "t6",
-        title: "Practice async JavaScript",
-        category: "study",
-        priority: "medium",
-        isCompleted: false,
-        createdAt: 1793792040000, // Wed, Nov 4, 2026, 6:34 PM
-    },
-];
 
 //region Local Storage
 function writeToStorage(key, value) {
@@ -147,9 +97,10 @@ export function deleteTask(taskId) {
     return masterTaskList;
 }
 
-function resetTaskList() {
-    masterTaskList = [...initialTaskList];
-    console.log('Task list has been reset!');
+// Fill an empty list with the mock tasks; does nothing if tasks already exist
+function seedIfEmpty() {
+    if (masterTaskList.length > 0) return;
+    commit([...mockTaskList]);
 }
 
 function getStat() {
@@ -166,11 +117,25 @@ function getStat() {
     }
 }
 
+function getCategoryCounts() {
+    return {
+        all: filterTasks().length,
+        ...Object.fromEntries(
+            CATEGORIES.map(c => [
+                c,
+                filterTasks({ category: c }).length
+            ])
+        )
+    }
+}
+
 // To make sure every "changes" is saved to storage + rendered
 export function commit(newTaskList) {
     masterTaskList = newTaskList;
     saveTaskList();
     render(masterTaskList);
+    renderStat(getStat());
+    renderCategoryCounts(getCategoryCounts());
 }
 
 
@@ -194,6 +159,8 @@ export function commit(newTaskList) {
     bindForm({
         onAddTask: (formData) => commit(addTask(formData)),
     })
+
+    bindClock({ onClick: seedIfEmpty });
 
     renderClock(getClockText());
     setInterval(() => renderClock(getClockText()), 1000);
