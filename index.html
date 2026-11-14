@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Plain Todo App</title>
-    <script src="js/main.js"></script>
+    <script src="js/main.js" defer></script>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -113,24 +113,24 @@
         <h2 id="tasks-heading" class="visually-hidden">Task List</h2>
         <span class="sub-text">6 tasks</span>
 
-        <ul class="task-items" role="list">
-            <li class="task">
-                <button class="checkbox" type="button">
-                    <span>O</span>
-                </button>
-                <div>
-                    <h3 id="task-title">Prepare quarterly report</h3>
-                    <div class="task-description">
-                        <div class="badge">High</div>
-                        <div class="badge">Work</div>
-                        <div class="create-at"></div>
-                    </div>
-                </div>
-                <button class="btn-delete" type="button">
-                    <span></span>
-                    Delete
-                </button>
-            </li>
+        <ul id="task-items" class="task-items" role="list">
+<!--            <li class="task">-->
+<!--                <button class="checkbox" type="button">-->
+<!--                    <span>O</span>-->
+<!--                </button>-->
+<!--                <div>-->
+<!--                    <h3 id="task-title">Prepare quarterly report</h3>-->
+<!--                    <div class="task-description">-->
+<!--                        <div class="badge">High</div>-->
+<!--                        <div class="badge">Work</div>-->
+<!--                        <div class="create-at"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <button class="btn-delete" type="button">-->
+<!--                    <span></span>-->
+<!--                    Delete-->
+<!--                </button>-->
+<!--            </li>-->
         </ul>
 
 
