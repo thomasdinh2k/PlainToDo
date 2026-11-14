@@ -1,0 +1,34 @@
+:root {
+    /* Main branding */
+    --color-primary: #524bb1;
+    --color-primary-strong: #3b3484;
+    --color-primary-text: #ffffff;
+
+    /* Surface & background */
+    --color-bg-page: #eeedfd;
+    --color-bg-surface: #ffffff;
+
+    /* Lines */
+    --color-border-input: #7e77d7;
+
+    /* Categories color */
+    --color-cat-all: #7e77d7;
+    --color-cat-all-bg: #eeedfd;
+    --color-cat-all-text: #3b3484;
+
+    --color-cat-work: #4e88d7;
+    --color-cat-work-bg: #e8f1fa;
+    --color-cat-work-text: #1e4378;
+
+    --color-cat-personal: #c55c7e;
+    --color-cat-personal-bg: #f8ebf0;
+    --color-cat-personal-text: #692a3e;
+
+    --color-cat-study: #4b9c78;
+    --color-cat-study-bg: #e5f5ef;
+    --color-cat-study-text: #224f42;
+
+    /* Typography */
+    --color-text: #2c2c2a;
+    --color-text-lowered-constrast: #5f5e5b;
+}

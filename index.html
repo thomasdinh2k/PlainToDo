@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plain Todo App</title>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<aside>
+    <header>
+        <div>Logo</div>
+        <span class="block">Taskboard</span>
+    </header>
+
+    <nav class="categories">
+        <h2 id="categories-heading" class="sub-text">Categories</h2>
+
+        <ul class="categories-list">
+            <li>
+                <div class="categories-item">
+                    <div class="dot"></div>
+                    <span>All tasks</span>
+                    <div class="badge">6</div>
+                </div>
+            </li>
+            <li>
+                <div class="categories-item blue">
+                    <div class="dot"></div>
+                    <span>Work</span>
+                    <div class="badge">2</div>
+                </div>
+            </li>
+            <li>
+                <div class="categories-item pink">
+                    <div class="dot"></div>
+                    <span>Personal</span>
+                    <div class="badge">2</div>
+                </div>
+            </li>
+            <li>
+                <div class="categories-item green">
+                    <div class="dot"></div>
+                    <span>Study</span>
+                    <div class="badge">2</div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</aside>
+
+<main>
+    <header>
+        <div class="date">
+            <span>Sunday</span>
+            <span>November 8, 2026</span>
+        </div>
+        <div class="time">
+            <div>Icon</div>
+            <span>7:25:10 PM</span>
+        </div>
+    </header>
+
+    <dl class="stat">
+        <div class="stat-tile stat-total">
+            <dt class="stat-label">Total</dt>
+            <dd class="stat-value"></dd>
+        </div>
+        <div class="stat-tile stat-active">
+            <dt class="stat-label">Active</dt>
+            <dd class="stat-value"></dd>
+        </div>
+        <div class="stat-tile stat-done">
+            <dt class="stat-label">Done</dt>
+            <dd class="stat-value"></dd>
+        </div>
+        <div class="stat-tile stat-high">
+            <dt class="stat-label">High</dt>
+            <dd class="stat-value"></dd>
+        </div>
+    </dl>
+
+    <form id="add-form">
+        <label for="title" class="visually-hidden">Title</label>
+        <input type="text" name="title" id="title" placeholder="Prepare sprint demo" maxlength="200" required>
+        <div>
+            <label for="category" class="visually-hidden">Category</label>
+            <select name="category" id="category">
+                <option value="work">Work</option>
+                <option value="personal">Personal</option>
+                <option value="study">Study</option>
+            </select>
+
+
+            <label for="priority" class="visually-hidden">
+                Priority
+            </label>
+            <select name="priority" id="priority">
+                <option value="high">High</option>
+                <option value="medium" selected>Medium</option>
+                <option value="low">Low</option>
+            </select>
+
+
+            <button type="submit">
+                <span>Plus Icon</span>
+                Add task
+            </button>
+        </div>
+    </form>
+
+    <section class="task-list">
+        <h2 id="tasks-heading" class="visually-hidden">Task List</h2>
+        <span class="sub-text">6 tasks</span>
+
+        <ul class="task-items" role="list">
+            <li class="task">
+                <button class="checkbox" type="button">
+                    <span>O</span>
+                </button>
+                <div>
+                    <h3 id="task-title">Prepare quarterly report</h3>
+                    <div class="task-description">
+                        <div class="badge">High</div>
+                        <div class="badge">Work</div>
+                        <div class="create-at"></div>
+                    </div>
+                </div>
+                <button class="btn-delete" type="button">
+                    <span></span>
+                    Delete
+                </button>
+            </li>
+        </ul>
+
+
+    </section>
+</main>
+
+
+</body>
+</html>
