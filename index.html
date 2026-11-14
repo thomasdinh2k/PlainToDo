@@ -18,28 +18,28 @@
 
         <ul class="categories-list">
             <li>
-                <div class="categories-item">
+                <div class="categories-item cat-total">
                     <div class="dot"></div>
                     <span>All tasks</span>
                     <div class="badge">6</div>
                 </div>
             </li>
             <li>
-                <div class="categories-item blue">
+                <div class="categories-item cat-work">
                     <div class="dot"></div>
                     <span>Work</span>
                     <div class="badge">2</div>
                 </div>
             </li>
             <li>
-                <div class="categories-item pink">
+                <div class="categories-item cat-personal">
                     <div class="dot"></div>
                     <span>Personal</span>
                     <div class="badge">2</div>
                 </div>
             </li>
             <li>
-                <div class="categories-item green">
+                <div class="categories-item cat-study">
                     <div class="dot"></div>
                     <span>Study</span>
                     <div class="badge">2</div>
@@ -64,19 +64,19 @@
     <dl class="stat">
         <div class="stat-tile stat-total">
             <dt class="stat-label">Total</dt>
-            <dd class="stat-value"></dd>
+            <dd class="stat-value">0</dd>
         </div>
         <div class="stat-tile stat-active">
             <dt class="stat-label">Active</dt>
-            <dd class="stat-value"></dd>
+            <dd class="stat-value">0</dd>
         </div>
         <div class="stat-tile stat-done">
             <dt class="stat-label">Done</dt>
-            <dd class="stat-value"></dd>
+            <dd class="stat-value">0</dd>
         </div>
         <div class="stat-tile stat-high">
             <dt class="stat-label">High</dt>
-            <dd class="stat-value"></dd>
+            <dd class="stat-value">0</dd>
         </div>
     </dl>
 
@@ -111,7 +111,7 @@
 
     <section class="task-list">
         <h2 id="tasks-heading" class="visually-hidden">Task List</h2>
-        <span class="sub-text">6 tasks</span>
+        <span id="task-quantity" class="sub-text"></span>
 
         <ul id="task-items" class="task-items" role="list">
 <!--            <li class="task">-->
