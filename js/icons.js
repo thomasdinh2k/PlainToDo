@@ -34,11 +34,17 @@ const ICONS = {
         <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
         <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
     </svg>`,
-
-    // Tabler: circle-check-filled (done task). The tick is a hole cut out of
-    // the circle, so whatever is behind the icon shows through it.
+    circle: `<svg ${ICON_OUTLINE_ATTRS}>
+        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
+    </svg>`,
     circleCheck: `<svg ${ICON_FILLED_ATTRS}>
         <path d="M17 3.34a10 10 0 1 1 -14.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 14.995 -8.336zm-1.293 5.953a1 1 0 0 0 -1.32 -.083l-.094 .083l-3.293 3.292l-1.293 -1.292l-.094 -.083a1 1 0 0 0 -1.403 1.403l.083 .094l2 2l.094 .083a1 1 0 0 0 1.226 0l.094 -.083l4 -4l.083 -.094a1 1 0 0 0 -.083 -1.32z" />
+    </svg>`,
+
+    clipboard: `<svg ${ICON_OUTLINE_ATTRS}>
+        <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+        <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+        <path d="M9 14l2 2l4 -4" />
     </svg>`,
 };
 
@@ -46,7 +52,7 @@ function renderIcons() {
     const iconsElement = {
         "main.logo": { selector: '#main-logo', element: ICONS.checklist },
         "clock" : { selector: '.time > div', element: ICONS.clock },
-        "form.plus": { selector: '#add-form button > span', element: ICONS.plus }
+        "form.plus": { selector: '#add-form button > span', element: ICONS.plus },
     };
 
     function findElementAndApplyIcons({ selector, element }) {

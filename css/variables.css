@@ -11,6 +11,8 @@
     /* Lines */
     --color-border-input: #7e77d7;
     --color-border-surface: #cecbf3;
+    --color-divider: #d3d1c8;
+    --color-divider-subtle: #f1efe9;
 
     /* Categories color */
     --color-cat-all: #7e77d7;
@@ -28,6 +30,14 @@
     --color-cat-study: #4b9c78;
     --color-cat-study-bg: #e5f5ef;
     --color-cat-study-text: #224f42;
+
+    /* Check */
+    --color-check-done: #476c23;
+
+    /* Delete button */
+    --color-danger-border: #d15650;
+    --color-danger-bg: #f9eceb;
+    --color-danger-text: #6f2623;
 
     /* Typography */
     --color-text: #2c2c2a;

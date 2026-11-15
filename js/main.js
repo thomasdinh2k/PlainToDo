@@ -548,26 +548,54 @@ function commit(callback) {
 //endregion
 
 function createTaskEl({ id, title, category, priority, isCompleted, createdAt }) {
+    function upperCaseFirstLetter(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    function covertDateTime(createAt) {
+        return new Date(createAt).toLocaleString("en-US",
+            {
+                weekday: "short",
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+                hour: "numeric",
+                minute: "2-digit",
+                hour12: true,
+            });
+    }
+
     const tpl = `
                 <button class="checkbox" type="button">
-                    <span>O</span>
+                    <span class="icon">
+                        ${isCompleted ? ICONS["circleCheck"] : ICONS["circle"]}
+                    </span>
                 </button>
                 <div>
-                    <h3 id="task-title">${title} | ${isCompleted}</h3>
+                    <h3 id="task-title">${title}</h3>
                     <div class="task-description">
-                        <div class="badge">${priority}</div>
-                        <div class="badge">${category}</div>
-                        <div class="create-at">${createdAt}</div>
+                        <div class="badge priority-${priority}">${upperCaseFirstLetter(priority)}</div>
+                        <div class="badge cat-${category}">${upperCaseFirstLetter(category)}</div>
+                        <div class="create-at">Added ${covertDateTime(createdAt)}</div>
                     </div>
                 </div>
-                <button class="btn-delete" type="button" (click)="deleteTask(id)">
-                    <span></span>
+                <button class="btn-delete" type="button">
+                    <span class="icon">
+                        ${ICONS["trash"]}
+                    </span> 
                     Delete
                 </button>
     `
 
     const newTaskEl = document.createElement("li");
     newTaskEl.classList.add("task");
+
+    if (isCompleted) {
+        newTaskEl.classList.add("completed");
+    } else {
+        newTaskEl.classList.remove("completed");
+    }
+
     newTaskEl.setAttribute('data-id', id);
     newTaskEl.innerHTML = tpl;
     return newTaskEl;
@@ -700,8 +728,49 @@ function renderStats() {
     })
 };
 
+function renderClock({ dayStr, dateStr, timeStr }) {
+    const clockEl = {
+        "date.of.week": {selector: ".date > span:first-child", value: dayStr },
+        "date": {selector: ".date > span:last-child", value: dateStr},
+        "clock": {selector: ".time > span", value: timeStr},
+    };
+
+    Object.values(clockEl).forEach(({ selector, value}) => {
+        const el = document.querySelector(selector);
+        el.textContent = value;
+    });
+}
+
+function getDateTime() {
+    const now = new Date();
+
+    const dayStr = now.toLocaleDateString('en-US', {
+        weekday: "long",
+    })
+
+    const dateStr = now.toLocaleDateString('en-US', {
+        day: 'numeric',
+        year: 'numeric',
+        month: 'long'
+    })
+
+    const timeStr = now.toLocaleTimeString('en-US', {
+        hour12: true
+    })
+
+    return {
+        dayStr,
+        dateStr,
+        timeStr,
+    }
+}
+
 
 // Execution
+renderClock(getDateTime());
+setInterval(() => {
+    renderClock(getDateTime());
+}, 1000)
 getTasksFromStorage();
 renderAllTasks();
 renderStats();
