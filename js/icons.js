@@ -8,7 +8,6 @@ const ICON_FILLED_ATTRS =
     'class="icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"';
 
 const ICONS = {
-    // Tabler: checklist (logo)
     checklist: `<svg ${ICON_OUTLINE_ATTRS}>
         <path d="M9.615 20h-2.615a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8" />
         <path d="M14 19l2 2l4 -4" />
@@ -16,7 +15,6 @@ const ICONS = {
         <path d="M9 12h2" />
     </svg>`,
 
-    // Tabler: clock
     clock: `<svg ${ICON_OUTLINE_ATTRS}>
         <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
         <path d="M12 7v5l3 3" />
@@ -45,39 +43,22 @@ const ICONS = {
 };
 
 function renderIcons() {
-    const element = document.querySelector('#main-logo')
+    const iconsElement = {
+        "main.logo": { selector: '#main-logo', element: ICONS.checklist },
+        "clock" : { selector: '.time > div', element: ICONS.clock },
+        "form.plus": { selector: '#add-form button > span', element: ICONS.plus }
+    };
 
-    element.innerHTML = ICONS.checklist
-    // element.classList.add('icon')
+    function findElementAndApplyIcons({ selector, element }) {
+        const el = document.querySelector(selector);
+        if (!el) {
+            console.error("Can\'t find element matching selector: ", selector);
+            return;
+        }
+        el.innerHTML = element;
+    }
 
-    // const statsElement = {
-    //     "stats.all": {selector: [".stat-total > dd", ".cat-total > .badge", "#task-quantity"], value: stats.total},
-    //     "stats.active": {selector: ".stat-active > dd", value: stats.status.incomplete},
-    //     "stats.done": {selector: ".stat-done > dd", value: stats.status.complete},
-    //     "stats.high": {selector: ".stat-high > dd", value: stats.priority.high},
-    //     "category.work": {selector: ".cat-work > .badge", value: stats.category.work},
-    //     "category.personal": {selector: ".cat-personal > .badge", value: stats.category.personal},
-    //     "category.study": {selector: ".cat-study > .badge", value: stats.category.study}
-    // };
-    //
-    // function findElementAndApplyRender(selector, value) {
-    //     const el = document.querySelector(selector);
-    //     el.textContent = value;
-    // }
-    //
-    // Object.values(statsElement).forEach(({ selector, value }) => {
-    //     if (Array.isArray(selector)) {
-    //         selector.forEach(s => {
-    //             if (s === '#task-quantity') {
-    //                 const specialCaseValue = value > 1 ? `${value} tasks` : `${value} task`;
-    //                 findElementAndApplyRender(s, specialCaseValue);
-    //                 return;
-    //             }
-    //
-    //             findElementAndApplyRender(s, value);
-    //         })
-    //     }
-    //
-    //     findElementAndApplyRender(selector, value);
-    // })
+    Object.values(iconsElement).forEach((item) => {
+        findElementAndApplyIcons(item);
+    })
 };
