@@ -41,6 +41,10 @@ aside, main {
     font-weight: 500;
 }
 
+.hidden {
+    display: none !important;
+}
+
 .badge {
     font-size: .75rem;
     line-height: 1;
@@ -351,6 +355,38 @@ main {
             }
             .checkbox {
                 color: var(--color-check-done);
+            }
+        }
+
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 8px;
+            padding: 4rem 1rem;
+            border: 1px dashed var(--color-border-surface);
+            border-radius: .75rem;
+
+            p:nth-child(2) {
+                color: var(--color-primary-strong);
+                font-size: 1.25rem;
+                font-weight: 600;
+            }
+
+            .icon {
+                display: grid;
+                place-items: center;
+                width: 48px;
+                height: 48px;
+                border-radius: 100%;
+                background-color: var(--color-bg-page);
+                color: var(--color-primary);
+
+                & > svg {
+                    width: 1.5rem;
+                    height: 1.5rem
+                }
             }
         }
     }

@@ -602,6 +602,7 @@ function createTaskEl({ id, title, category, priority, isCompleted, createdAt })
 }
 
 function renderAllTasks() {
+    triggerNoTaskState(taskList.length === 0);
     const list = document.querySelector(SELECTORS.TASK_ITEM);
     list.replaceChildren();
     try {
@@ -610,6 +611,16 @@ function renderAllTasks() {
         })
     } catch (e) {
         console.error("Can\'t render tasks", e);
+    }
+}
+
+function triggerNoTaskState(isNoTask) {
+    const el = document.querySelector('.empty-state');
+
+    if (isNoTask) {
+        el.classList.remove('hidden');
+    } else {
+        el.classList.add('hidden');
     }
 }
 
