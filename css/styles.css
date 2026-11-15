@@ -1,5 +1,7 @@
+@import 'reset.css';
 @import 'variables.css';
 
+/*region Shared*/
 body {
     height: 100vh;
     background: var(--color-bg-page);
@@ -8,6 +10,7 @@ body {
     grid-template-rows: 1fr;
     gap: 1rem;
     padding: .5rem;
+    font-family: var(--font-sans);
 }
 
 aside, main {
@@ -20,20 +23,36 @@ aside, main {
     display: block;
 }
 
+.icon {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.sub-text {
+    color: var(--color-primary);
+    font-size: .875rem;
+    font-weight: 500;
+}
+/*endregion*/
+
 aside {
     header {
+        /*border: 1px solid;*/
+
         display: flex;
         gap: 1rem;
         padding-block: 1rem;
-        border: 1px solid;
         margin-bottom: 1rem;
+        color: var(--color-primary);
+        font-weight: 600;
     }
 
     .categories {
         color: var(--color-border-input);
-        border: 1px solid;
+        /*border: 1px solid;*/
 
         .categories-item {
+            /*region colors*/
             --dot-color: var(--color-cat-all);
             --badge-background: var(--color-cat-all-bg);
             --text-color: var(--color-cat-all-text);
@@ -54,24 +73,33 @@ aside {
                 --badge-background: var(--color-cat-study-bg);
                 --text-color: var(--color-cat-study-text);
             }
+            /*endregion*/
 
             display: flex;
             align-items: center;
-            padding-block: 1rem;
+            padding: 8px 0;
+            text-align: left;
+            gap: 10px;
+            color: var(--color-text);
 
             .dot {
                 width: 10px;
                 height: 10px;
                 background-color: var(--dot-color);
                 border-radius: 100%;
+                flex-shrink: 0;
             }
 
             .badge {
+                font-size: .75rem;
+                line-height: 1;
                 color: var(--text-color);
                 background-color: var(--badge-background);
-                padding: .5rem;
-                border-radius: 50%;
+                padding: 4px 6px;
                 margin-left: auto;
+                border-radius: .5rem;
+                min-width: 2rem;
+                text-align: center;
             }
 
             span {

@@ -31,4 +31,7 @@
     /* Typography */
     --color-text: #2c2c2a;
     --color-text-lowered-constrast: #5f5e5b;
+
+    --font-sans: "Inter", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", monospace;
 }
