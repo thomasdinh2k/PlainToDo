@@ -1,10 +1,8 @@
-# TODO App Assessment
+# TODO App Assessment - 2nd attempt
 
 Build the task manager shown below using HTML, CSS, and JavaScript.
 
-<img width="718" height="767" alt="image" src="public/img/UI-reference.png" />
-
-**Time limit:** xx hours
+<img width="718" height="767" alt="image" src="public/UI-reference.png" />
 
 ## Rules
 
