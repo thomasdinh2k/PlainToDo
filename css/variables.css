@@ -15,6 +15,7 @@
     --color-divider-subtle: #f1efe9;
 
     /* Categories color */
+    /* TODO: Devide these to separate colour shade variables */
     --color-cat-all: #7e77d7;
     --color-cat-all-bg: #eeedfd;
     --color-cat-all-text: #3b3484;
@@ -30,6 +31,9 @@
     --color-cat-study: #4b9c78;
     --color-cat-study-bg: #e5f5ef;
     --color-cat-study-text: #224f42;
+
+    --color-priority-medium-bg: #f8efdc;
+    --color-priority-medium-text: #5d3a13;
 
     /* Check */
     --color-check-done: #476c23;
