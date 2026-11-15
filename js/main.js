@@ -1,4 +1,4 @@
-console.log("Redo Assignment 1");
+"use strict"
 
 const STORAGE_KEY = { tasks: "plaintodo.tasks" }
 const CATEGORIES = Object.freeze(['work', 'personal', 'study']);
@@ -705,3 +705,4 @@ function renderStats() {
 getTasksFromStorage();
 renderAllTasks();
 renderStats();
+renderIcons();
